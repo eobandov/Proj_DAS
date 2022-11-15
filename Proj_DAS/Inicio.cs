@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 
 namespace Proj_DAS
 {
-    public partial class Form1 : Form
+    public partial class Inicio : Form
     {
         //Formulario BASE NO USAR
-        public Form1()
+        public Inicio()
         {
             InitializeComponent();
         }
@@ -54,7 +54,7 @@ namespace Proj_DAS
         {
             gbUsuario.Enabled = true;
             gbUsuario.Visible = true;
-            gbPaciente.Visible = false;
+            //gbPaciente.Visible = false;
         }
 
         // Funcion de Arrastrar formulario
@@ -115,7 +115,7 @@ namespace Proj_DAS
 
         private void btnPaciente_Click(object sender, EventArgs e)
         {
-            gbPaciente.Visible = true;
+            //gbPaciente.Visible = true;
             gbUsuario.Visible = false;
         }
 
@@ -150,6 +150,113 @@ namespace Proj_DAS
         {
             btnEA.Checked = false;
             btnPax.Checked = false;
+        }
+
+        private void btnPaxM_CheckedChanged(object sender, EventArgs e)
+        {
+            btnEAM.Checked = false;
+            btnEMM.Checked = false;
+        }
+
+        private void btnEAM_CheckedChanged(object sender, EventArgs e)
+        {
+            btnPaxM.Checked = false;
+            btnEMM.Checked = false;
+        }
+
+        private void btnEMM_CheckedChanged(object sender, EventArgs e)
+        {
+            btnEAM.Checked = false;
+            btnPaxM.Checked = false;
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (btnPax.Checked == true)
+            {
+                AddPax ap = new AddPax("Agregar usuario")
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                ap.FormClosing += delegate { this.Show(); };
+                ap.Show();
+                this.Hide();
+
+            }
+            else if(btnEA.Checked == true)
+            {
+                AddEmp em = new AddEmp()
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                em.FormClosing += delegate { this.Show(); };
+                em.Show();
+                this.Hide();
+            }
+            else if(btnEM.Checked == true)
+            {
+                AddMed me = new AddMed()
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                me.FormClosing += delegate { this.Show(); };
+                me.Show();
+                this.Hide();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (btnPaxM.Checked == true)
+            {
+                AddPax ap = new AddPax("Modificar usuario")
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                ap.FormClosing += delegate { this.Show(); };
+                ap.Show();
+                this.Hide();
+            }
+            else if (btnEAM.Checked == true)
+            {
+                AddEmp em = new AddEmp()
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                em.FormClosing += delegate { this.Show(); };
+                em.Show();
+                this.Hide();
+            }
+            else if (btnEMM.Checked == true)
+            {
+                AddMed me = new AddMed()
+                {
+                    Location = this.Location,
+                    StartPosition = FormStartPosition.Manual
+                };
+                me.FormClosing += delegate { this.Show(); };
+                me.Show();
+                this.Hide();
+            }
+        }
+
+        private void gbPaciente_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,8 +38,12 @@ namespace Proj_DAS
 
         public void abrir_inicio()
         {
-            Form1 fr1 = new Form1();
+            var fr1 = new Inicio();
+            fr1.Location = this.Location;
+            fr1.StartPosition = FormStartPosition.Manual;
+            fr1.FormClosing += delegate { this.Show(); };
             fr1.Show();
+            this.Hide();
         }
         private void btnConexion_Click(object sender, EventArgs e)
         {
@@ -106,6 +110,66 @@ namespace Proj_DAS
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void MenuVertical_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtContr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestaurar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMaximizar_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
