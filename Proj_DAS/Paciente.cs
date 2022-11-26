@@ -19,5 +19,9 @@ namespace Proj_DAS
         public String canton;
         public String distrito;
         public String senhas;
+
+        public int numHistorial;
+        public String historial;
+        public DateTime fechaRegistro;
     }
 }

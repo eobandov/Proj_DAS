@@ -202,6 +202,9 @@
     <Compile Include="AddPax.Designer.cs">
       <DependentUpon>AddPax.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cita.cs" />
+    <Compile Include="Empleado.cs" />
+    <Compile Include="Factura.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +217,7 @@
     <Compile Include="Login2.Designer.cs">
       <DependentUpon>Login2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
