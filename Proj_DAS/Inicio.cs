@@ -20,6 +20,19 @@ namespace Proj_DAS
             InitializeComponent();
         }
 
+        private void AbrirPax(Object formSec)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+            {
+                this.panelContenedor.Controls.RemoveAt(0);
+            }
+            Form ap = formSec as Form;
+            ap.TopLevel = false;
+            ap.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(ap);
+            this.panelContenedor.Tag = ap;
+            ap.Show();
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -52,9 +65,7 @@ namespace Proj_DAS
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            gbUsuario.Enabled = true;
-            gbUsuario.Visible = true;
-            //gbPaciente.Visible = false;
+            
         }
 
         // Funcion de Arrastrar formulario
@@ -115,8 +126,7 @@ namespace Proj_DAS
 
         private void btnPaciente_Click(object sender, EventArgs e)
         {
-            //gbPaciente.Visible = true;
-            gbUsuario.Visible = false;
+            AbrirPax(new AddPax());
         }
 
         private void btnCita_Click(object sender, EventArgs e)
@@ -136,112 +146,106 @@ namespace Proj_DAS
 
         private void btnPax_CheckedChanged(object sender, EventArgs e)
         {
-            btnEA.Checked = false;
-            btnEM.Checked = false;
+            
         }
 
         private void btnEA_CheckedChanged(object sender, EventArgs e)
         {
-            btnPax.Checked = false;
-            btnEM.Checked = false;
+            
         }
 
         private void btnEM_CheckedChanged(object sender, EventArgs e)
         {
-            btnEA.Checked = false;
-            btnPax.Checked = false;
+            
         }
 
         private void btnPaxM_CheckedChanged(object sender, EventArgs e)
         {
-            btnEAM.Checked = false;
-            btnEMM.Checked = false;
+            
         }
 
         private void btnEAM_CheckedChanged(object sender, EventArgs e)
         {
-            btnPaxM.Checked = false;
-            btnEMM.Checked = false;
+            
         }
 
         private void btnEMM_CheckedChanged(object sender, EventArgs e)
         {
-            btnEAM.Checked = false;
-            btnPaxM.Checked = false;
+           
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (btnPax.Checked == true)
-            {
-                AddPax ap = new AddPax("Agregar usuario")
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                ap.FormClosing += delegate { this.Show(); };
-                ap.Show();
-                this.Hide();
+            //if (btnPax.Checked == true)
+            //{
+            //    AddPax ap = new AddPax()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    ap.FormClosing += delegate { this.Show(); };
+            //    ap.Show();
+            //    this.Hide();
 
-            }
-            else if(btnEA.Checked == true)
-            {
-                AddEmp em = new AddEmp()
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                em.FormClosing += delegate { this.Show(); };
-                em.Show();
-                this.Hide();
-            }
-            else if(btnEM.Checked == true)
-            {
-                AddMed me = new AddMed()
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                me.FormClosing += delegate { this.Show(); };
-                me.Show();
-                this.Hide();
-            }
+            //}
+            //else if(btnEA.Checked == true)
+            //{
+            //    AddEmp em = new AddEmp()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    em.FormClosing += delegate { this.Show(); };
+            //    em.Show();
+            //    this.Hide();
+            //}
+            //else if(btnEM.Checked == true)
+            //{
+            //    AddMed me = new AddMed()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    me.FormClosing += delegate { this.Show(); };
+            //    me.Show();
+            //    this.Hide();
+            //}
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (btnPaxM.Checked == true)
-            {
-                AddPax ap = new AddPax("Modificar usuario")
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                ap.FormClosing += delegate { this.Show(); };
-                ap.Show();
-                this.Hide();
-            }
-            else if (btnEAM.Checked == true)
-            {
-                AddEmp em = new AddEmp()
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                em.FormClosing += delegate { this.Show(); };
-                em.Show();
-                this.Hide();
-            }
-            else if (btnEMM.Checked == true)
-            {
-                AddMed me = new AddMed()
-                {
-                    Location = this.Location,
-                    StartPosition = FormStartPosition.Manual
-                };
-                me.FormClosing += delegate { this.Show(); };
-                me.Show();
-                this.Hide();
-            }
+            //if (btnPaxM.Checked == true)
+            //{
+            //    AddPax ap = new AddPax()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    ap.FormClosing += delegate { this.Show(); };
+            //    ap.Show();
+            //    this.Hide();
+            //}
+            //else if (btnEAM.Checked == true)
+            //{
+            //    AddEmp em = new AddEmp()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    em.FormClosing += delegate { this.Show(); };
+            //    em.Show();
+            //    this.Hide();
+            //}
+            //else if (btnEMM.Checked == true)
+            //{
+            //    AddMed me = new AddMed()
+            //    {
+            //        Location = this.Location,
+            //        StartPosition = FormStartPosition.Manual
+            //    };
+            //    me.FormClosing += delegate { this.Show(); };
+            //    me.Show();
+            //    this.Hide();
+            //}
         }
 
         private void gbPaciente_Enter(object sender, EventArgs e)

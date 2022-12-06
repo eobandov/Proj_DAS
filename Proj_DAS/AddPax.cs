@@ -7,259 +7,269 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data
-    .SqlClient;
+using System.Data.SqlClient;
+using System.Collections;
+
 namespace Proj_DAS
 {
     public partial class AddPax : Form
     {
-        String mod = "";
-        public AddPax(String mod)
+        static string conString = "Data Source=localhost;Initial Catalog='CitasMedicas'; integrated security = true";
+        SqlConnection con = new SqlConnection(conString);
+        DataTable dt = new DataTable();
+        public AddPax()
         {
             InitializeComponent();
-            limpiar();
-            this.mod = mod;
-            if (mod == "Modificar usuario") 
-            { 
-                prepMod(false);
-                btnAgregar.Text = "Modificar usuario";
-            }
+
         }
         public static SqlConnection conexion()
         {
             //Aqui se cambia la direccion del db
-            //"server=localhost ; database=CitasMedicas ; integrated security = true"
             SqlConnection con = new SqlConnection();
             con.ConnectionString = "Data Source=localhost;Initial Catalog='CitasMedicas'; integrated security = true";
             return con;
         }
-        public Boolean user = true;
-        public Paciente pac = null;
-        public void limpiar()
+
+        //private DataSet loadData()
+        //{
+        //    string cadenaP = "select * from [CitasMedicas].[dbo].[Pacientes]";
+        //    string cadenaC = "select * from [CitasMedicas].[dbo].[Correo_Pacientes]";
+        //    string cadenaD = "select * from [CitasMedicas].[dbo].[Domicilio_Pacientes]";
+        //    //string cadenaProv = "select * from [CitasMedicas].[dbo].[Provincia]"; PARA DESPUES
+
+
+        //    con = new SqlConnection();
+        //    con = conexion();
+        //    con.Open();
+
+        //    SqlDataAdapter sda = new SqlDataAdapter(cadenaP, con);
+        //    SqlCommand cmd;
+        //    DataSet ds = new DataSet();
+
+        //    cmd = new SqlCommand(cadenaP, con);
+        //    sda.SelectCommand = cmd;
+        //    sda.Fill(ds, "Paciente");
+
+        //    sda.SelectCommand.CommandText = cadenaC;
+        //    sda.Fill(ds, "Correo");
+
+        //    sda.SelectCommand.CommandText = cadenaD;
+        //    sda.Fill(ds, "Domicilio");
+
+        //    con.Close();
+        //    dt = ds.Tables[1];
+        //    return ds;
+        //    //dgPax.DataSource = dt;
+
+        //}
+        //public void addCorreo()
+        //{
+
+        //    DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+        //    combo.HeaderText = "Correo";
+        //    combo.Name = "combo";
+
+
+
+        //    ArrayList row = new ArrayList();
+
+        //    foreach(DataRow dr in dt.Rows)
+        //    {
+        //        row.Add(dr["Correo"].ToString());
+        //    }
+
+        //    combo.Items.AddRange(row.ToArray());
+        //    dgPax.Columns.Add(combo);
+        //}
+
+
+        private void AddPax_Load(object sender, EventArgs e)
         {
-            txtId.Clear();
-            txtNombre.Clear();
-            txtApellido1.Clear();
-            txtApellido2.Clear();
-            txtEdad.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
-            txtProvincia.Clear();
-            txtCanton.Clear();
-            txtDistrito.Clear();
-            txtSenhas.Clear();
-            txtUsuario.Clear();
-            txtContr.Clear();
+            //dgPax.DataSource = loadData().Tables[0];
+            //dgCorreo.DataSource = loadData().Tables[1];
+            //dgDomicilio.DataSource = loadData().Tables[2];
+
+            this.correo_PacientesTableAdapter.Fill(this.citasMedicasDataSet2.Correo_Pacientes);
+            this.domicilio_PacientesTableAdapter.Fill(this.citasMedicasDataSet1.Domicilio_Pacientes);
+            this.pacientesTableAdapter.Fill(this.citasMedicasDataSet.Pacientes);
         }
 
-        public int provincia(String p)
+        private void dgPax_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            int prov=0;
-            switch (p)
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
             {
-                case "San Jose": prov = 1; break;
-                case "Alajuela": prov = 2; break;
-                case "Cartago": prov = 3; break;
-                case "Heredia": prov = 4; break;
-                case "Guanacaste": prov = 5; break;
-                case "Puntarenas": prov = 6; break;
-                case "Limon": prov = 7; break;
-                default: prov = 0; break;
+                if (!dgPax.IsCurrentRowDirty)
+                    return;
+
+                string query = addORupdateP((DataGridViewCellCancelEventArgs)e);
+
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
             }
-            return prov;
-        }
-        public int conteo()
-        {
-            int cont = 0;
-
-            SqlConnection cn = new SqlConnection();
-            cn = conexion();
-            cn.Open();
-
-            string cadena = "select count(*) from [CitasMedicas ].[dbo].[Domicilio_Pacientes]";
-
-            SqlCommand comando = new SqlCommand(cadena, cn);
-            SqlDataReader reader = comando.ExecuteReader();
-            if (reader.Read())
+            catch (Exception ex)
             {
-                cont = reader.GetInt32(0);
-                //Cerrando la conexion a la base de datos
-                cn.Close();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            return cont;
+            con.Close();
         }
-        private void btnVerificar_Click(object sender, EventArgs e)
+        private void dgCorreo_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if (verificar() == false) MessageBox.Show("Faltan datos", "Fallo en Agregar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
             {
-                switch (mod)
-                {
-                    case "Agregar usuario":
+                if (!dgCorreo.IsCurrentRowDirty)
+                    return;
 
-                        //Abrir conexion
-                        SqlConnection cn = new SqlConnection();
-                        cn = conexion();
-                        cn.Open();
+                string query = addORupdateC((DataGridViewCellCancelEventArgs)e);
 
-                        //Enviar query
-                        string cadena = "select * from [CitasMedicas ].[dbo].[Pacientes] WHERE id_Paciente=" + txtId.Text;
-
-                        SqlCommand comando = new SqlCommand(cadena, cn);
-                        SqlDataReader reader = comando.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            user = true;
-                            MessageBox.Show("Usuario encontrado, no se puede volver a agregar.", "Fallo en Agregar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            prepMod(true);
-                        }
-                        else
-                        {
-                            user = false;
-                            btnAgregar.Enabled = true;
-                            MessageBox.Show("Usuario puede ser agregado ahora.", "Agregar nuevo usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-
-                        //Cerrando la conexion a la base de datos
-                        cn.Close();
-
-                        break;
-                    case "Modificar usuario":
-                        SqlConnection con = new SqlConnection();
-                        con = conexion();
-                        con.Open();
-
-                        //Enviar query
-                        string cadena2 = "select * from [CitasMedicas ].[dbo].[Pacientes] WHERE id_Paciente=" + txtId.Text;
-                        SqlCommand comando2 = new SqlCommand(cadena2, con);
-                        SqlDataReader reader2 = comando2.ExecuteReader();
-
-                        if (reader2.Read())
-                        {
-                            user = true;
-                            MessageBox.Show("Usuario encontrado, ahora se puede modificar.", "Modficar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            prepMod(true);
-
-                            //Obtener datos
-                            pac = new Paciente();
-                            pac.id_Paciente = Decimal.ToInt32(reader2.GetDecimal(0));
-                            pac.nombre = reader2.GetString(1);
-                            pac.apellido1 = reader2.GetString(2);
-                            pac.apellido2 = reader2.GetString(3);
-                            pac.edad = Decimal.ToInt32(reader2.GetDecimal(4));
-                            pac.tel = Decimal.ToInt32(reader2.GetDecimal(5));
-
-                            //Cerrando la conexion a la base de datos
-                            con.Close();
-                            txtNombre.Text = pac.nombre;
-                            txtApellido1.Text = pac.apellido1;
-                            txtApellido2.Text = pac.apellido2;
-                            txtEdad.Text = pac.edad.ToString();
-                            txtTelefono.Text = pac.tel.ToString();
-                            btnAgregar.Enabled = true;
-                        }
-                        else
-                        {
-                            user = false;
-                            MessageBox.Show("Usuario no encontrado.", "Fallo en modificar usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        con.Close();
-                        break;
-                }
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
             }
-            
-            
-        }
-        public Boolean verificar()
-        {
-            Boolean flag = false;
-
-            if (txtId.Text != "" || txtNombre.Text != "" || txtApellido1.Text != "" || txtApellido2.Text != "" ||
-                txtEdad.Text != "" || txtTelefono.Text != "" || txtCorreo.Text != "" || txtUsuario.Text != "" ||
-                txtContr.Text != "" || txtProvincia.Text != "" || txtCanton.Text != "" || txtDistrito.Text != "" ||
-                txtSenhas.Text != "" )
+            catch (Exception ex)
             {
-                flag = true;
-            }           
-            return flag;
-        }
-
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if (user == false)
-            {
-                int cont;
-                cont = conteo();
-
-                //Abrir conexion
-                SqlConnection cn = new SqlConnection();
-                cn = conexion();
-                cn.Open();
-
-                //Enviar query
-                string cadena = "insert into [CitasMedicas ].[dbo].[Pacientes] values(" + txtId.Text + ",'" + txtNombre.Text + "','"
-                    + txtApellido1.Text + "','" + txtApellido2.Text + "'," + txtEdad.Text + "," + txtTelefono.Text + ")";
-
-                SqlCommand com1 = new SqlCommand(cadena, cn);
-                com1.ExecuteNonQuery();
-
-                int prov = provincia(txtProvincia.Text);
-
-                cadena = "insert into [CitasMedicas ].[dbo].[Domicilio_Pacientes] values(" + prov + "," + cont + "," + txtId.Text + ",'" + txtCanton.Text +
-                    "','" + txtDistrito.Text + "','" + txtSenhas.Text + "')";
-
-                SqlCommand com2 = new SqlCommand(cadena, cn);
-                com2.ExecuteNonQuery();
-
-                MessageBox.Show("Los datos se almacenaron correctamente", "Control de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Cerrando la conexion a la base de datos
-                cn.Close();
-
-                limpiar();
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (user == true)
-            {
-                SqlConnection cn = new SqlConnection();
-                cn = conexion();
-                cn.Open();
-
-                //CAMBIARLO
-                string cadena = "update * from [CitasMedicas ].[dbo].[Pacientes] WHERE id_Paciente=" + txtId.Text ;
-
-                SqlCommand comando = new SqlCommand(cadena, cn);
-
-                cn.Close();
-            }
+            con.Close();
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void dgDomicilio_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            Inicio fr = new Inicio()
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
             {
-                Location = this.Location,
-                StartPosition = FormStartPosition.Manual
-            };
-            fr.FormClosing += delegate { this.Show(); };
-            fr.Show();
-            this.Hide();
+                if (!dgDomicilio.IsCurrentRowDirty)
+                    return;
+
+                string query = addORupdateD((DataGridViewCellCancelEventArgs)e);
+
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            con.Close();
         }
-        public void prepMod(Boolean h)
-        {          
-            txtNombre.Enabled = h;
-            txtApellido1.Enabled = h;
-            txtApellido2.Enabled =h;
-            txtEdad.Enabled = h;
-            txtTelefono.Enabled = h;
-            txtCorreo.Enabled = h;
-            txtProvincia.Enabled = h;
-            txtCanton.Enabled = h;
-            txtDistrito.Enabled = h;
-            txtSenhas.Enabled = h;
-            txtUsuario.Enabled = h;
-            txtContr.Enabled =h;
+        private String addORupdateP(DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewRow row = dgPax.Rows[e.RowIndex];
+            int id = 0, edad, tel;
+            int.TryParse(row.Cells["id_Paciente"].Value.ToString(), out id);
+            String nombre = row.Cells["nombre"].Value.ToString();
+            String ap1 = row.Cells["apellido1"].Value.ToString();
+            String ap2 = row.Cells["apellido2"].Value.ToString();
+            int.TryParse(row.Cells["edad"].Value.ToString(), out edad);
+            int.TryParse(row.Cells["tel"].Value.ToString(), out tel);
+
+            if (id == 0) return string.Format("insert into [dbo].[Pacientes]  values ({0},'{1}','{2}','{3}',{4},{5})", id, nombre, ap1, ap2, edad, tel);
+            else return string.Format("update [dbo].[Pacientes] set [nombre]= '{0}', [apellido1]= '{1}', [apellido2]= '{2}', [edad]= {3}, [tel]= {4} WHERE [id_Paciente]={5}", nombre, ap1, ap2, edad, tel, id);
         }
+
+        private String addORupdateC(DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewRow row = dgCorreo.Rows[e.RowIndex];
+            int id = 0, num;
+            int.TryParse(row.Cells["id_Paciente2"].Value.ToString(), out id);
+            String correo = row.Cells["correo"].Value.ToString();
+            int.TryParse(row.Cells["num_Correo"].Value.ToString(), out num);
+
+            if (num == 0) return string.Format("insert into [dbo].[Correo_Pacientes]  values ({0},{1},'{2}')", num, id,correo);
+            else return string.Format("update [dbo].[Correo_Pacientes] set [correo]= '{0}' WHERE [id_Paciente]={1}", correo,id);
+        }
+
+        private String addORupdateD(DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewRow row = dgDomicilio.Rows[e.RowIndex];
+            int id = 0, dom,prov;
+            int.TryParse(row.Cells["id_Paciente3"].Value.ToString(), out id);
+            int.TryParse(row.Cells["num_Provincia"].Value.ToString(), out prov);
+            int.TryParse(row.Cells["num_Domicilio"].Value.ToString(), out dom);
+            String canton = row.Cells["canton"].Value.ToString();
+            String distrito = row.Cells["Distrito"].Value.ToString();
+            String senhas = row.Cells["otrasSenhas"].Value.ToString();
+
+            if (dom == 0) return string.Format("insert into [dbo].[Correo_Pacientes]  values ({0},{1},{2},{3},{4},{5})", prov,dom,id,canton,distrito,senhas);
+            else return string.Format("update [dbo].[Domicilio_Pacientes] set [num_Provincia] = {0}, [num_Domicilio] = {1},[id_Paciente] ={2}, [canton] = {3}, [Distrito] ={4},[otrasSenhas] = {5} WHERE [id_Paciente]={2}", prov, dom, id, canton, distrito, senhas);
+        }
+
+
+        private void dgPax_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
+            {
+                int id = 0;
+                int.TryParse(e.Row.Cells["id_Paciente"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Pacientes] WHERE [id_Paciente] = {0}", id);
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            con.Close();
+        }
+
+        private void dgCorreo_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
+            {
+                int id = 0;
+                int.TryParse(e.Row.Cells["id_Paciente2"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Correo_Pacientes] WHERE [id_Paciente] = {0}", id);
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            con.Close();
+        }
+        private void dgDomicilio_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
+            {
+                int id = 0;
+                int.TryParse(e.Row.Cells["id_Paciente3"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Domicilio_Pacientes] WHERE [id_Paciente] = {0}", id);
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            con.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        //    dgPax.DataSource = loadData().Tables[0];
+        //    dgCorreo.DataSource = loadData().Tables[1];
+        //    dgDomicilio.DataSource = loadData().Tables[2];
+
+
+        }
+
+
+
+
     }
 }

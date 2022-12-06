@@ -205,6 +205,7 @@ namespace Proj_DAS
             this.txtContr.Name = "txtContr";
             this.txtContr.Size = new System.Drawing.Size(223, 22);
             this.txtContr.TabIndex = 12;
+            this.txtContr.UseSystemPasswordChar = true;
             this.txtContr.TextChanged += new System.EventHandler(this.txtContr_TextChanged);
             // 
             // txtUsuario

@@ -7,7 +7,6 @@ C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.cspro
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.csproj.CoreCompileInputs.cache
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.exe
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.pdb
-C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.exe.config
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Azure.Core.dll
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Azure.Identity.dll
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -83,3 +82,17 @@ C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.AddPa
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.AddEmp.resources
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.AddMed.resources
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.Inicio.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Google.Protobuf.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\MySql.Data.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\ZstdNet.dll
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Google.Protobuf.pdb
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\Google.Protobuf.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\MySql.Data.xml
