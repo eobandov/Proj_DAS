@@ -16,7 +16,7 @@ namespace Proj_DAS
     {
         static string conString = "Data Source=localhost;Initial Catalog='CitasMedicas'; integrated security = true";
         SqlConnection con = new SqlConnection(conString);
-        DataTable dt = new DataTable();
+
         public AddPax()
         {
             InitializeComponent();
@@ -30,65 +30,10 @@ namespace Proj_DAS
             return con;
         }
 
-        //private DataSet loadData()
-        //{
-        //    string cadenaP = "select * from [CitasMedicas].[dbo].[Pacientes]";
-        //    string cadenaC = "select * from [CitasMedicas].[dbo].[Correo_Pacientes]";
-        //    string cadenaD = "select * from [CitasMedicas].[dbo].[Domicilio_Pacientes]";
-        //    //string cadenaProv = "select * from [CitasMedicas].[dbo].[Provincia]"; PARA DESPUES
-
-
-        //    con = new SqlConnection();
-        //    con = conexion();
-        //    con.Open();
-
-        //    SqlDataAdapter sda = new SqlDataAdapter(cadenaP, con);
-        //    SqlCommand cmd;
-        //    DataSet ds = new DataSet();
-
-        //    cmd = new SqlCommand(cadenaP, con);
-        //    sda.SelectCommand = cmd;
-        //    sda.Fill(ds, "Paciente");
-
-        //    sda.SelectCommand.CommandText = cadenaC;
-        //    sda.Fill(ds, "Correo");
-
-        //    sda.SelectCommand.CommandText = cadenaD;
-        //    sda.Fill(ds, "Domicilio");
-
-        //    con.Close();
-        //    dt = ds.Tables[1];
-        //    return ds;
-        //    //dgPax.DataSource = dt;
-
-        //}
-        //public void addCorreo()
-        //{
-
-        //    DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
-        //    combo.HeaderText = "Correo";
-        //    combo.Name = "combo";
-
-
-
-        //    ArrayList row = new ArrayList();
-
-        //    foreach(DataRow dr in dt.Rows)
-        //    {
-        //        row.Add(dr["Correo"].ToString());
-        //    }
-
-        //    combo.Items.AddRange(row.ToArray());
-        //    dgPax.Columns.Add(combo);
-        //}
-
 
         private void AddPax_Load(object sender, EventArgs e)
         {
-            //dgPax.DataSource = loadData().Tables[0];
-            //dgCorreo.DataSource = loadData().Tables[1];
-            //dgDomicilio.DataSource = loadData().Tables[2];
-
+            
             this.correo_PacientesTableAdapter.Fill(this.citasMedicasDataSet2.Correo_Pacientes);
             this.domicilio_PacientesTableAdapter.Fill(this.citasMedicasDataSet1.Domicilio_Pacientes);
             this.pacientesTableAdapter.Fill(this.citasMedicasDataSet.Pacientes);
@@ -195,8 +140,9 @@ namespace Proj_DAS
             String distrito = row.Cells["Distrito"].Value.ToString();
             String senhas = row.Cells["otrasSenhas"].Value.ToString();
 
-            if (dom == 0) return string.Format("insert into [dbo].[Correo_Pacientes]  values ({0},{1},{2},{3},{4},{5})", prov,dom,id,canton,distrito,senhas);
-            else return string.Format("update [dbo].[Domicilio_Pacientes] set [num_Provincia] = {0}, [num_Domicilio] = {1},[id_Paciente] ={2}, [canton] = {3}, [Distrito] ={4},[otrasSenhas] = {5} WHERE [id_Paciente]={2}", prov, dom, id, canton, distrito, senhas);
+            //return string.Format("insert into [dbo].[Domicilio_Pacientes]  values ({0},{1},{2},'{3}','{4}','{5}')", prov, dom, id, canton, distrito, senhas);
+            if (dom == 0) return string.Format("insert into [dbo].[Correo_Pacientes]  values ({0},{1},{2},'{3}','{4}','{5}')", prov, dom, id, canton, distrito, senhas);
+            else return string.Format("update [dbo].[Domicilio_Pacientes] set [num_Provincia] = {0}, [num_Domicilio] = {1}, [canton] = '{2}', [Distrito] ='{3}',[otrasSenhas] = '{4}' WHERE [id_Paciente]={5}", prov, dom, canton, distrito, senhas,id);
         }
 
 
@@ -258,17 +204,6 @@ namespace Proj_DAS
             }
             con.Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        //    dgPax.DataSource = loadData().Tables[0];
-        //    dgCorreo.DataSource = loadData().Tables[1];
-        //    dgDomicilio.DataSource = loadData().Tables[2];
-
-
-        }
-
-
 
 
     }

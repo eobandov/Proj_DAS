@@ -67,7 +67,6 @@ namespace Proj_DAS
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(400, 38);
             this.BarraTitulo.TabIndex = 5;
-            this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             // 
             // btnRestaurar
             // 
@@ -82,7 +81,6 @@ namespace Proj_DAS
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click_1);
             // 
             // btnMinimizar
             // 
@@ -96,7 +94,6 @@ namespace Proj_DAS
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnMaximizar
             // 
@@ -110,7 +107,6 @@ namespace Proj_DAS
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMaximizar.TabIndex = 1;
             this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click_1);
             // 
             // btnCerrar
             // 
@@ -144,7 +140,6 @@ namespace Proj_DAS
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(401, 516);
             this.MenuVertical.TabIndex = 6;
-            this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
             // label2
             // 
@@ -156,7 +151,6 @@ namespace Proj_DAS
             this.label2.Size = new System.Drawing.Size(125, 23);
             this.label2.TabIndex = 16;
             this.label2.Text = "Contraseña";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -168,7 +162,6 @@ namespace Proj_DAS
             this.label1.Size = new System.Drawing.Size(198, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "Nombre de Usuario";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -178,7 +171,6 @@ namespace Proj_DAS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(7, 39);
             this.panel2.TabIndex = 14;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnConexion
             // 
@@ -206,7 +198,6 @@ namespace Proj_DAS
             this.txtContr.Size = new System.Drawing.Size(223, 22);
             this.txtContr.TabIndex = 12;
             this.txtContr.UseSystemPasswordChar = true;
-            this.txtContr.TextChanged += new System.EventHandler(this.txtContr_TextChanged);
             // 
             // txtUsuario
             // 
@@ -215,7 +206,6 @@ namespace Proj_DAS
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(223, 22);
             this.txtUsuario.TabIndex = 11;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // panel5
             // 
@@ -226,7 +216,6 @@ namespace Proj_DAS
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(7, 39);
             this.panel5.TabIndex = 10;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // btnAdmin
             // 
@@ -242,9 +231,9 @@ namespace Proj_DAS
             this.btnAdmin.Location = new System.Drawing.Point(0, 473);
             this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(224, 39);
+            this.btnAdmin.Size = new System.Drawing.Size(387, 39);
             this.btnAdmin.TabIndex = 9;
-            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.Text = "Recuperacion de Contraseña";
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
@@ -259,13 +248,12 @@ namespace Proj_DAS
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Login2
             // 
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(400, 554);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);

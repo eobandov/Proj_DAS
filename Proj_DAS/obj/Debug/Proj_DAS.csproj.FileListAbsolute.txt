@@ -96,3 +96,10 @@ C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compressi
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Compression.LZ4.Streams.xml
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\K4os.Hash.xxHash.xml
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\bin\Debug\MySql.Data.xml
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.rreporteCitas.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.Credenciales.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.reporteFacturas.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.AddCita.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.AddFactura.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.detalleCitas.resources
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.Informacion.resources

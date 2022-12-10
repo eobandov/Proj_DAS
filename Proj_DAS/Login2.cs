@@ -22,6 +22,7 @@ namespace Proj_DAS
         // Agregar variable Usuario de forma global
         public Usuario user = null;
 
+
         public static SqlConnection conexion()
         {
             //Aqui se cambia la direccion del db
@@ -39,6 +40,15 @@ namespace Proj_DAS
         public void abrir_inicio()
         {
             var fr1 = new Inicio();
+            fr1.Location = this.Location;
+            fr1.StartPosition = FormStartPosition.Manual;
+            fr1.FormClosing += delegate { this.Show(); };
+            fr1.Show();
+            this.Hide();
+        }
+        public void abrir_cred()
+        {
+            var fr1 = new Credenciales();
             fr1.Location = this.Location;
             fr1.StartPosition = FormStartPosition.Manual;
             fr1.FormClosing += delegate { this.Show(); };
@@ -83,11 +93,6 @@ namespace Proj_DAS
             }
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -113,64 +118,11 @@ namespace Proj_DAS
 
         }
 
-        private void MenuVertical_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtContr_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-
+            abrir_cred();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnRestaurar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMinimizar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMaximizar_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

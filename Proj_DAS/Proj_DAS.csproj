@@ -222,11 +222,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCita.Designer.cs">
+      <DependentUpon>AddCita.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEmp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddEmp.Designer.cs">
       <DependentUpon>AddEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFactura.Designer.cs">
+      <DependentUpon>AddFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="AddMed.cs">
       <SubType>Form</SubType>
@@ -240,7 +252,6 @@
     <Compile Include="AddPax.Designer.cs">
       <DependentUpon>AddPax.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="CitasMedicasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -251,17 +262,102 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitasMedicasDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CitasMedicasDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet16.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CitasMedicasDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CitasMedicasDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CitasMedicasDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CitasMedicasDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasMedicasDataSet9.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
-=======
-    <Compile Include="Cita.cs" />
+    <Compile Include="Credenciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Credenciales.Designer.cs">
+      <DependentUpon>Credenciales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detalleCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detalleCitas.Designer.cs">
+      <DependentUpon>detalleCitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Empleado.cs" />
     <Compile Include="Factura.cs" />
->>>>>>> 4c802b77bb93610c271a1fabf373c6b7f344c9f5
+    <Compile Include="Informacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informacion.Designer.cs">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,15 +374,42 @@
     <Compile Include="Paciente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reporteFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteFacturas.Designer.cs">
+      <DependentUpon>reporteFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rreporteCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rreporteCitas.Designer.cs">
+      <DependentUpon>rreporteCitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="AddCita.resx">
+      <DependentUpon>AddCita.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEmp.resx">
       <DependentUpon>AddEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFactura.resx">
+      <DependentUpon>AddFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddMed.resx">
       <DependentUpon>AddMed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPax.resx">
       <DependentUpon>AddPax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Credenciales.resx">
+      <DependentUpon>Credenciales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detalleCitas.resx">
+      <DependentUpon>detalleCitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informacion.resx">
+      <DependentUpon>Informacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -298,6 +421,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporteFacturas.resx">
+      <DependentUpon>reporteFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rreporteCitas.resx">
+      <DependentUpon>rreporteCitas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="CitasMedicasDataSet.xsc">
       <DependentUpon>CitasMedicasDataSet.xsd</DependentUpon>
@@ -321,6 +450,83 @@
     <None Include="CitasMedicasDataSet1.xss">
       <DependentUpon>CitasMedicasDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="CitasMedicasDataSet10.xsc">
+      <DependentUpon>CitasMedicasDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet10.xss">
+      <DependentUpon>CitasMedicasDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet11.xsc">
+      <DependentUpon>CitasMedicasDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet11.xss">
+      <DependentUpon>CitasMedicasDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet12.xsc">
+      <DependentUpon>CitasMedicasDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet12.xss">
+      <DependentUpon>CitasMedicasDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet13.xsc">
+      <DependentUpon>CitasMedicasDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet13.xss">
+      <DependentUpon>CitasMedicasDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet14.xsc">
+      <DependentUpon>CitasMedicasDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet14.xss">
+      <DependentUpon>CitasMedicasDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet15.xsc">
+      <DependentUpon>CitasMedicasDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet15.xss">
+      <DependentUpon>CitasMedicasDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet16.xsc">
+      <DependentUpon>CitasMedicasDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet16.xss">
+      <DependentUpon>CitasMedicasDataSet16.xsd</DependentUpon>
+    </None>
     <None Include="CitasMedicasDataSet2.xsc">
       <DependentUpon>CitasMedicasDataSet2.xsd</DependentUpon>
     </None>
@@ -331,6 +537,83 @@
     </None>
     <None Include="CitasMedicasDataSet2.xss">
       <DependentUpon>CitasMedicasDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet3.xsc">
+      <DependentUpon>CitasMedicasDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet3.xss">
+      <DependentUpon>CitasMedicasDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet4.xsc">
+      <DependentUpon>CitasMedicasDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet4.xss">
+      <DependentUpon>CitasMedicasDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet5.xsc">
+      <DependentUpon>CitasMedicasDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet5.xss">
+      <DependentUpon>CitasMedicasDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet6.xsc">
+      <DependentUpon>CitasMedicasDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet6.xss">
+      <DependentUpon>CitasMedicasDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet7.xsc">
+      <DependentUpon>CitasMedicasDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet7.xss">
+      <DependentUpon>CitasMedicasDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet8.xsc">
+      <DependentUpon>CitasMedicasDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet8.xss">
+      <DependentUpon>CitasMedicasDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet9.xsc">
+      <DependentUpon>CitasMedicasDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="CitasMedicasDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasMedicasDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasMedicasDataSet9.xss">
+      <DependentUpon>CitasMedicasDataSet9.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -383,6 +666,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportes1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

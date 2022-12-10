@@ -30,12 +30,6 @@ namespace Proj_DAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.correoPacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.domicilioPacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.correoPacientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.correoPacientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.domicilioPacientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgCorreo = new System.Windows.Forms.DataGridView();
             this.num_Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_Paciente2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +37,12 @@ namespace Proj_DAS
             this.correoPacientesBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.citasMedicasDataSet2 = new Proj_DAS.CitasMedicasDataSet2();
             this.dgDomicilio = new System.Windows.Forms.DataGridView();
+            this.num_Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_Paciente3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.canton = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.otrasSenhas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.domicilioPacientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.citasMedicasDataSet1 = new Proj_DAS.CitasMedicasDataSet1();
             this.dgPax = new System.Windows.Forms.DataGridView();
@@ -57,19 +57,14 @@ namespace Proj_DAS
             this.pacientesTableAdapter = new Proj_DAS.CitasMedicasDataSetTableAdapters.PacientesTableAdapter();
             this.domicilio_PacientesTableAdapter = new Proj_DAS.CitasMedicasDataSet1TableAdapters.Domicilio_PacientesTableAdapter();
             this.correo_PacientesTableAdapter = new Proj_DAS.CitasMedicasDataSet2TableAdapters.Correo_PacientesTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
-            this.num_Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num_Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_Paciente3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.canton = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.otrasSenhas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource1)).BeginInit();
+            this.pacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.correoPacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.domicilioPacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.correoPacientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.correoPacientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.domicilioPacientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorreo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet2)).BeginInit();
@@ -79,6 +74,12 @@ namespace Proj_DAS
             ((System.ComponentModel.ISupportInitialize)(this.dgPax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgCorreo
@@ -95,7 +96,7 @@ namespace Proj_DAS
             this.dgCorreo.Name = "dgCorreo";
             this.dgCorreo.RowHeadersWidth = 51;
             this.dgCorreo.RowTemplate.Height = 24;
-            this.dgCorreo.Size = new System.Drawing.Size(1245, 226);
+            this.dgCorreo.Size = new System.Drawing.Size(1398, 226);
             this.dgCorreo.TabIndex = 45;
             this.dgCorreo.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgCorreo_RowValidating);
             this.dgCorreo.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgCorreo_UserDeletingRow);
@@ -151,10 +152,58 @@ namespace Proj_DAS
             this.dgDomicilio.Name = "dgDomicilio";
             this.dgDomicilio.RowHeadersWidth = 51;
             this.dgDomicilio.RowTemplate.Height = 24;
-            this.dgDomicilio.Size = new System.Drawing.Size(1246, 207);
+            this.dgDomicilio.Size = new System.Drawing.Size(1398, 259);
             this.dgDomicilio.TabIndex = 44;
             this.dgDomicilio.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgDomicilio_RowValidating);
             this.dgDomicilio.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgDomicilio_UserDeletingRow);
+            // 
+            // num_Provincia
+            // 
+            this.num_Provincia.DataPropertyName = "num_Provincia";
+            this.num_Provincia.HeaderText = "num_Provincia";
+            this.num_Provincia.MinimumWidth = 6;
+            this.num_Provincia.Name = "num_Provincia";
+            this.num_Provincia.Width = 125;
+            // 
+            // num_Domicilio
+            // 
+            this.num_Domicilio.DataPropertyName = "num_Domicilio";
+            this.num_Domicilio.HeaderText = "num_Domicilio";
+            this.num_Domicilio.MinimumWidth = 6;
+            this.num_Domicilio.Name = "num_Domicilio";
+            this.num_Domicilio.Width = 125;
+            // 
+            // id_Paciente3
+            // 
+            this.id_Paciente3.DataPropertyName = "id_Paciente";
+            this.id_Paciente3.HeaderText = "id_Paciente";
+            this.id_Paciente3.MinimumWidth = 6;
+            this.id_Paciente3.Name = "id_Paciente3";
+            this.id_Paciente3.Width = 125;
+            // 
+            // canton
+            // 
+            this.canton.DataPropertyName = "canton";
+            this.canton.HeaderText = "canton";
+            this.canton.MinimumWidth = 6;
+            this.canton.Name = "canton";
+            this.canton.Width = 125;
+            // 
+            // Distrito
+            // 
+            this.Distrito.DataPropertyName = "Distrito";
+            this.Distrito.HeaderText = "Distrito";
+            this.Distrito.MinimumWidth = 6;
+            this.Distrito.Name = "Distrito";
+            this.Distrito.Width = 125;
+            // 
+            // otrasSenhas
+            // 
+            this.otrasSenhas.DataPropertyName = "otrasSenhas";
+            this.otrasSenhas.HeaderText = "otrasSenhas";
+            this.otrasSenhas.MinimumWidth = 6;
+            this.otrasSenhas.Name = "otrasSenhas";
+            this.otrasSenhas.Width = 125;
             // 
             // domicilioPacientesBindingSource2
             // 
@@ -183,7 +232,7 @@ namespace Proj_DAS
             this.dgPax.Name = "dgPax";
             this.dgPax.RowHeadersWidth = 51;
             this.dgPax.RowTemplate.Height = 24;
-            this.dgPax.Size = new System.Drawing.Size(1245, 265);
+            this.dgPax.Size = new System.Drawing.Size(1398, 265);
             this.dgPax.TabIndex = 43;
             this.dgPax.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgPax_RowValidating);
             this.dgPax.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgPax_UserDeletingRow);
@@ -258,71 +307,41 @@ namespace Proj_DAS
             // 
             this.correo_PacientesTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // panel2
             // 
-            this.button1.Location = new System.Drawing.Point(1306, 534);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 84);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel2.Location = new System.Drawing.Point(52, 840);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(7, 39);
+            this.panel2.TabIndex = 49;
             // 
-            // num_Provincia
+            // btnActualizar
             // 
-            this.num_Provincia.DataPropertyName = "num_Provincia";
-            this.num_Provincia.HeaderText = "num_Provincia";
-            this.num_Provincia.MinimumWidth = 6;
-            this.num_Provincia.Name = "num_Provincia";
-            this.num_Provincia.Width = 125;
-            // 
-            // num_Domicilio
-            // 
-            this.num_Domicilio.DataPropertyName = "num_Domicilio";
-            this.num_Domicilio.HeaderText = "num_Domicilio";
-            this.num_Domicilio.MinimumWidth = 6;
-            this.num_Domicilio.Name = "num_Domicilio";
-            this.num_Domicilio.Width = 125;
-            // 
-            // id_Paciente3
-            // 
-            this.id_Paciente3.DataPropertyName = "id_Paciente";
-            this.id_Paciente3.HeaderText = "id_Paciente";
-            this.id_Paciente3.MinimumWidth = 6;
-            this.id_Paciente3.Name = "id_Paciente3";
-            this.id_Paciente3.Width = 125;
-            // 
-            // canton
-            // 
-            this.canton.DataPropertyName = "canton";
-            this.canton.HeaderText = "canton";
-            this.canton.MinimumWidth = 6;
-            this.canton.Name = "canton";
-            this.canton.Width = 125;
-            // 
-            // Distrito
-            // 
-            this.Distrito.DataPropertyName = "Distrito";
-            this.Distrito.HeaderText = "Distrito";
-            this.Distrito.MinimumWidth = 6;
-            this.Distrito.Name = "Distrito";
-            this.Distrito.Width = 125;
-            // 
-            // otrasSenhas
-            // 
-            this.otrasSenhas.DataPropertyName = "otrasSenhas";
-            this.otrasSenhas.HeaderText = "otrasSenhas";
-            this.otrasSenhas.MinimumWidth = 6;
-            this.otrasSenhas.Name = "otrasSenhas";
-            this.otrasSenhas.Width = 125;
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(56, 840);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(224, 39);
+            this.btnActualizar.TabIndex = 48;
+            this.btnActualizar.Text = "Actualizar tablas";
+            this.btnActualizar.UseVisualStyleBackColor = false;
             // 
             // AddPax
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.MediumPurple;
-            this.ClientSize = new System.Drawing.Size(1389, 838);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(2125, 990);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dgCorreo);
             this.Controls.Add(this.dgDomicilio);
             this.Controls.Add(this.dgPax);
@@ -330,12 +349,6 @@ namespace Proj_DAS
             this.Name = "AddPax";
             this.Text = "AddPax";
             this.Load += new System.EventHandler(this.AddPax_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorreo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet2)).EndInit();
@@ -345,6 +358,12 @@ namespace Proj_DAS
             ((System.ComponentModel.ISupportInitialize)(this.dgPax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correoPacientesBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domicilioPacientesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,12 +396,13 @@ namespace Proj_DAS
         private System.Windows.Forms.DataGridViewTextBoxColumn num_Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_Paciente2;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_Provincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn num_Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_Paciente3;
         private System.Windows.Forms.DataGridViewTextBoxColumn canton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Distrito;
         private System.Windows.Forms.DataGridViewTextBoxColumn otrasSenhas;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
