@@ -37,9 +37,9 @@ namespace Proj_DAS
             txtContr.Clear();
         }
 
-        public void abrir_inicio()
+        public void abrir_inicio(int ww)
         {
-            var fr1 = new Inicio();
+            var fr1 = new Inicio(ww);
             fr1.Location = this.Location;
             fr1.StartPosition = FormStartPosition.Manual;
             fr1.FormClosing += delegate { this.Show(); };
@@ -67,18 +67,25 @@ namespace Proj_DAS
                 cn.Open();
 
                 //Enviar query
-                string cadena = "select * from [CitasMedicas ].[dbo].[Credenciales_Empleados] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text+"'";
+                string cadena = "select * from [CitasMedicas].[dbo].[Credenciales_Empleados] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text+"'";
 
                 SqlCommand comando = new SqlCommand(cadena, cn);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.Read())
                 {
+                    decimal t;
+                    int ww;
+                    string us, cont;
                     user = new Usuario();
-                    user.usuario = reader.GetString(2);
+                    t= reader.GetDecimal(0);
+                    ww = Decimal.ToInt32(t);
+                    us= reader.GetString(1);
+                    cont = reader.GetString(2);
                     //Cerrando la conexion a la base de datos
                     cn.Close();
-                    MessageBox.Show("Bienvenid@ "+user.usuario+"!", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    abrir_inicio();
+                    //
+                    MessageBox.Show("Bienvenid@ " + us + "!", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    abrir_inicio(ww);
                 }
                 else
                 {

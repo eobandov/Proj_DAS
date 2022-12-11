@@ -19,10 +19,7 @@ namespace Proj_DAS
 
         private void AddFactura_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet16.Detalle_Factura' Puede moverla o quitarla según sea necesario.
-            this.detalle_FacturaTableAdapter.Fill(this.citasMedicasDataSet16.Detalle_Factura);
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet15.Facturacion' Puede moverla o quitarla según sea necesario.
-            this.facturacionTableAdapter.Fill(this.citasMedicasDataSet15.Facturacion);
+            
 
         }
     }

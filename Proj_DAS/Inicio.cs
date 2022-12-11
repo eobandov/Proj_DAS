@@ -15,9 +15,11 @@ namespace Proj_DAS
     public partial class Inicio : Form
     {
         //Formulario BASE NO USAR
-        public Inicio()
+        public int user;
+        public Inicio(int User)
         {
             InitializeComponent();
+            this.user = User;
         }
 
         private void AbrirForm(Object formSec)
@@ -107,7 +109,7 @@ namespace Proj_DAS
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //AbrirForm(new Personal());
+            AbrirForm(new PersonalPax(user));
 
         }
 
@@ -119,6 +121,11 @@ namespace Proj_DAS
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AbrirForm(new Informacion());
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new PersonalEmp(user));
         }
     }
 }

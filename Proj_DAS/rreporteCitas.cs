@@ -21,8 +21,7 @@ namespace Proj_DAS
 
         private void rreporteCitas_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet14.Citas' Puede moverla o quitarla según sea necesario.
-            this.citasTableAdapter.Fill(this.citasMedicasDataSet14.Citas);
+            
 
         }
 

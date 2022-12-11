@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace Proj_DAS
 {
     public partial class Credenciales : Form
@@ -15,6 +15,13 @@ namespace Proj_DAS
         public Credenciales()
         {
             InitializeComponent();
+        }
+        public static SqlConnection conexion()
+        {
+            //Aqui se cambia la direccion del db
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "Data Source=localhost;Initial Catalog='CitasMedicas'; integrated security = true";
+            return con;
         }
         public void abrir_login()
         {
@@ -30,6 +37,11 @@ namespace Proj_DAS
         {
             abrir_login();
            
+        }
+
+        private void btnConexion_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

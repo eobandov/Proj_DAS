@@ -31,9 +31,8 @@ namespace Proj_DAS
         {
             this.components = new System.ComponentModel.Container();
             this.dgCita = new System.Windows.Forms.DataGridView();
-            this.citasMedicasDataSet14 = new Proj_DAS.CitasMedicasDataSet14();
+            
             this.citasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.citasTableAdapter = new Proj_DAS.CitasMedicasDataSet14TableAdapters.CitasTableAdapter();
             this.codCitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaCitaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +44,6 @@ namespace Proj_DAS
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnArchivo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgCita)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,20 +71,7 @@ namespace Proj_DAS
             this.dgCita.RowTemplate.Height = 24;
             this.dgCita.Size = new System.Drawing.Size(1466, 265);
             this.dgCita.TabIndex = 45;
-            // 
-            // citasMedicasDataSet14
-            // 
-            this.citasMedicasDataSet14.DataSetName = "CitasMedicasDataSet14";
-            this.citasMedicasDataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // citasBindingSource
-            // 
-            this.citasBindingSource.DataMember = "Citas";
-            this.citasBindingSource.DataSource = this.citasMedicasDataSet14;
-            // 
-            // citasTableAdapter
-            // 
-            this.citasTableAdapter.ClearBeforeFill = true;
+            
             // 
             // codCitaDataGridViewTextBoxColumn
             // 
@@ -202,7 +187,6 @@ namespace Proj_DAS
             this.Text = "rreporteCitas";
             this.Load += new System.EventHandler(this.rreporteCitas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCita)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.citasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -211,9 +195,7 @@ namespace Proj_DAS
         #endregion
 
         private System.Windows.Forms.DataGridView dgCita;
-        private CitasMedicasDataSet14 citasMedicasDataSet14;
         private System.Windows.Forms.BindingSource citasBindingSource;
-        private CitasMedicasDataSet14TableAdapters.CitasTableAdapter citasTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn codCitaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCitaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horaCitaDataGridViewTextBoxColumn;

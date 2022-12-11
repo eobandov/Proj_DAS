@@ -192,19 +192,21 @@ namespace Proj_DAS
             // 
             // txtContr
             // 
+            this.txtContr.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContr.Location = new System.Drawing.Point(76, 318);
             this.txtContr.Margin = new System.Windows.Forms.Padding(4);
             this.txtContr.Name = "txtContr";
-            this.txtContr.Size = new System.Drawing.Size(223, 22);
+            this.txtContr.Size = new System.Drawing.Size(223, 28);
             this.txtContr.TabIndex = 12;
             this.txtContr.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(76, 224);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(223, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(223, 28);
             this.txtUsuario.TabIndex = 11;
             // 
             // panel5

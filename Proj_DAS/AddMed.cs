@@ -13,9 +13,7 @@ namespace Proj_DAS
 {
     public partial class AddMed : Form
     {
-        static string conString = "Data Source=localhost;Initial Catalog='CitasMedicas'; integrated security = true";
-        SqlConnection con = new SqlConnection(conString);
-
+        
         public AddMed()
         {
             InitializeComponent();
@@ -30,67 +28,64 @@ namespace Proj_DAS
 
         private void AddMed_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet12.Especialidad_Medicos' Puede moverla o quitarla según sea necesario.
-            this.especialidad_MedicosTableAdapter.Fill(this.citasMedicasDataSet12.Especialidad_Medicos);
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet11.Disponibilidad_Medicos' Puede moverla o quitarla según sea necesario.
-            this.disponibilidad_MedicosTableAdapter.Fill(this.citasMedicasDataSet11.Disponibilidad_Medicos);
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet10.Correo_Médicos' Puede moverla o quitarla según sea necesario.
-            this.correo_MédicosTableAdapter.Fill(this.citasMedicasDataSet10.Correo_Médicos);
-            // TODO: esta línea de código carga datos en la tabla 'citasMedicasDataSet9.Medicos' Puede moverla o quitarla según sea necesario.
-            this.medicosTableAdapter.Fill(this.citasMedicasDataSet9.Medicos);
+            // TODO: esta línea de código carga datos en la tabla 'dSEspe.Especialidad_Medicos' Puede moverla o quitarla según sea necesario.
+            this.especialidad_MedicosTableAdapter.Fill(this.dSEspe.Especialidad_Medicos);
 
+            cargar();
+        }
+        private void cargar()
+        {
+            this.medicosTableAdapter.Fill(this.dSMedicos.Medicos);
+            this.especialidad_MedicosTableAdapter.Fill(this.dSEspe.Especialidad_Medicos);
+            this.disponibilidad_MedicosTableAdapter.Fill(this.disponibilidadDS.Disponibilidad_Medicos);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cargar();
+        }
         private String addORupdateMedico(DataGridViewCellCancelEventArgs e)
         {
             DataGridViewRow row = dgMed.Rows[e.RowIndex];
             int id = 0, tel=0;
-            int.TryParse(row.Cells["cod_Medico"].Value.ToString(), out id);
-            String nombre = row.Cells["nombre"].Value.ToString();
-            String ap1 = row.Cells["apellido1"].Value.ToString();
-            String ap2 = row.Cells["apellido2"].Value.ToString();
-            int.TryParse(row.Cells["tel"].Value.ToString(), out tel);
+            int.TryParse(row.Cells["cod_Medico1"].Value.ToString(), out id);
+            String nombre = row.Cells["nombre1"].Value.ToString();
+            String ap1 = row.Cells["apellido11"].Value.ToString();
+            String ap2 = row.Cells["apellido21"].Value.ToString();
+            int.TryParse(row.Cells["tel1"].Value.ToString(), out tel);
+            String correo = row.Cells["correo1"].Value.ToString();
 
-            if (id == 0) return string.Format("insert into [dbo].[Medicos]  values ({0},'{1}','{2}','{3}',{4})", id, nombre, ap1, ap2, tel);
-            else return string.Format("update [dbo].[Medicos] set [nombre]= '{0}', [apellido1]= '{1}', [apellido2]= '{2}', [tel]= {3} WHERE [cod_Medico]={4}", nombre, ap1, ap2, tel, id); //Cambiar la tilde de la variable medico en la DB
+            if (id <0) return string.Format("insert into [dbo].[Medicos]  values ('{0}','{1}','{2}',{3},'{4}')", nombre, ap1, ap2, tel,correo);
+            else return string.Format("update [dbo].[Medicos] set [nombre]= '{0}', [apellido1]= '{1}', [apellido2]= '{2}', [tel]= {3}, [correo]={4} WHERE [cod_Medico]={5}", nombre, ap1, ap2, tel, correo, id); 
         }
-        private String addORupdateCorreo(DataGridViewCellCancelEventArgs e)
-        {
-            DataGridViewRow row = dgCorreo.Rows[e.RowIndex];
-            int id = 0, num;
-            int.TryParse(row.Cells["cod_Medico2"].Value.ToString(), out id);
-            String correo = row.Cells["correo"].Value.ToString();
-            int.TryParse(row.Cells["num_Correo"].Value.ToString(), out num);
 
-            if (num == 0) return string.Format("insert into [dbo].[Correo_Medicos]  values ({0},{1},'{2}')", num, id, correo); //MISMOS CAMBIOS POR LA TILDE
-            else return string.Format("update [dbo].[Correo_Médicos] set [correo]= '{0}' WHERE [cod_Medico]={1}", correo, id);
-        }
         private String addORupdateDispo(DataGridViewCellCancelEventArgs e)
         {
             DataGridViewRow row = dgDispo.Rows[e.RowIndex];
             int id = 0, num = 0;
-            int.TryParse(row.Cells["cod_Medico3"].Value.ToString(), out id);
-            String dispo = row.Cells["disponibilidad"].Value.ToString();
-            int.TryParse(row.Cells["num_Dia"].Value.ToString(), out num);
+            int.TryParse(row.Cells["cod_Medico111"].Value.ToString(), out id);
+            int.TryParse(row.Cells["num_Dia111"].Value.ToString(), out num);
 
-            if (id == 0) return string.Format("insert into [dbo].[Disponibilidad_Medicos]  values ({0},{1},'{2}')", num, id, dispo);
-            else return string.Format("update [dbo].[Disponibilidad_Medicos] set [disponibilidad]= '{0}' WHERE [cod_Medico]={1}", dispo, id); 
+            if (id < 0) return string.Format("insert into [dbo].[Disponibilidad_Medicos] ([num_Dia],[cod_Medico])  values ({0},{1})", num, id);
+            else return string.Format("update [dbo].[Disponibilidad_Medicos] set [num_Dia] = {0} WHERE [cod_Medico]={1}", num, id);
         }
-        private String addORupdateEspe(DataGridViewCellCancelEventArgs e)
+        private String addORupdateEsp(DataGridViewCellCancelEventArgs e)
         {
             DataGridViewRow row = dgEsp.Rows[e.RowIndex];
             int id = 0, num = 0;
-            int.TryParse(row.Cells["cod_Medico4"].Value.ToString(), out id);
-            String esp = row.Cells["especialidad"].Value.ToString();
-            int.TryParse(row.Cells["cod_Especialidad"].Value.ToString(), out num);
+            int.TryParse(row.Cells["cod_Medico222"].Value.ToString(), out id);
+            int.TryParse(row.Cells["cod_Especialidad222"].Value.ToString(), out num);
+            String esp = row.Cells["especialidad222"].Value.ToString();
 
-            if (id == 0) return string.Format("insert into [dbo].[Especialidad_Medicos]  values ({0},{1},'{2}')", num, id, esp);
-            else return string.Format("update [dbo].[Especialidad_Medicos] set [especialidad]= '{0}' WHERE [cod_Medico]={1}", esp, id); 
+            if (num < 0) return string.Format("insert into [dbo].[Especialidad_Medicos] ([cod_Medico],[especialidad]) values ({0},'{1}')", id,esp);
+            else return string.Format("update [dbo].[Especialidad_Medicos] set [cod_Medico]= {0},[especialidad] ='{1}' WHERE [cod_Especialidad]={2}", id,esp,num);
         }
+
+
 
         private void dgMed_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            con = new SqlConnection();
+            SqlConnection con = new SqlConnection();
             con = conexion();
             con.Open();
             try
@@ -109,18 +104,17 @@ namespace Proj_DAS
             }
             con.Close();
         }
-
-        private void dgCorreo_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        private void dgEsp_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            con = new SqlConnection();
+            SqlConnection con = new SqlConnection();
             con = conexion();
             con.Open();
             try
             {
-                if (!dgCorreo.IsCurrentRowDirty)
+                if (!dgEsp.IsCurrentRowDirty)
                     return;
 
-                string query = addORupdateCorreo((DataGridViewCellCancelEventArgs)e);
+                string query = addORupdateEsp((DataGridViewCellCancelEventArgs)e);
 
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
@@ -131,10 +125,9 @@ namespace Proj_DAS
             }
             con.Close();
         }
-
         private void dgDispo_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
-            con = new SqlConnection();
+            SqlConnection con = new SqlConnection();
             con = conexion();
             con.Open();
             try
@@ -154,59 +147,22 @@ namespace Proj_DAS
             con.Close();
         }
 
-        private void dgEsp_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            con = new SqlConnection();
-            con = conexion();
-            con.Open();
-            try
-            {
-                if (!dgEsp.IsCurrentRowDirty)
-                    return;
 
-                string query = addORupdateEspe((DataGridViewCellCancelEventArgs)e);
-
-                var cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            con.Close();
-        }
 
         private void dgMed_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            con = new SqlConnection();
+            SqlConnection con  = new SqlConnection();
             con = conexion();
             con.Open();
             try
             {
                 int id = 0;
-                int.TryParse(e.Row.Cells["cod_Medico"].Value.ToString(), out id);
-                string query = string.Format("DELETE FROM [dbo].[Medicos] WHERE [cod_Medico] = {0}", id);
+                int.TryParse(e.Row.Cells["cod_Medico1"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Credenciales_Medicos] WHERE [cod_Medico] = {0}", id);
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            con.Close();
-        }
-
-        private void dgCorreo_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            con = new SqlConnection();
-            con = conexion();
-            con.Open();
-            try
-            {
-                int id = 0;
-                int.TryParse(e.Row.Cells["cod_Medico2"].Value.ToString(), out id);
-                string query = string.Format("DELETE FROM [dbo].[Correo_Médicos] WHERE [cod_Médico] = {0}", id);
-                var cmd = new SqlCommand(query, con);
+                query = string.Format("DELETE FROM [dbo].[Medicos] WHERE [cod_Medico] = {0}", id);
+                cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -218,14 +174,33 @@ namespace Proj_DAS
 
         private void dgDispo_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
-            con = new SqlConnection();
+            SqlConnection con = new SqlConnection();
             con = conexion();
             con.Open();
             try
             {
                 int id = 0;
-                int.TryParse(e.Row.Cells["cod_Medico3"].Value.ToString(), out id);
-                string query = string.Format("DELETE FROM [dbo].[Disponibilidad_Medicos] WHERE [cod_Medico] = {0}", id);
+                int.TryParse(e.Row.Cells["num_Dia111"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Disponibilidad_Medicos] WHERE [num_Dia] = {0}", id);
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            con.Close();
+        }
+        private void dgEsp_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con = conexion();
+            con.Open();
+            try
+            {
+                int id = 0;
+                int.TryParse(e.Row.Cells["cod_Especialidad222"].Value.ToString(), out id);
+                string query = string.Format("DELETE FROM [dbo].[Especialidad_Medicos] WHERE [cod_Especialidad] = {0}", id);
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
             }
@@ -236,24 +211,8 @@ namespace Proj_DAS
             con.Close();
         }
 
-        private void dgEsp_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            con = new SqlConnection();
-            con = conexion();
-            con.Open();
-            try
-            {
-                int id = 0;
-                int.TryParse(e.Row.Cells["cod_Medico4"].Value.ToString(), out id);
-                string query = string.Format("DELETE FROM [dbo].[Especialidad_Medicos] WHERE [cod_Medico] = {0}", id);
-                var cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            con.Close();
-        }
+        
+
+       
     }
 }

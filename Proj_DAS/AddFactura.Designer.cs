@@ -31,11 +31,9 @@ namespace Proj_DAS
         {
             this.components = new System.ComponentModel.Container();
             this.facturacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.citasMedicasDataSet15 = new Proj_DAS.CitasMedicasDataSet15();
-            this.facturacionTableAdapter = new Proj_DAS.CitasMedicasDataSet15TableAdapters.FacturacionTableAdapter();
+            
             this.detalleFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.citasMedicasDataSet16 = new Proj_DAS.CitasMedicasDataSet16();
-            this.detalle_FacturaTableAdapter = new Proj_DAS.CitasMedicasDataSet16TableAdapters.Detalle_FacturaTableAdapter();
+            
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,38 +63,9 @@ namespace Proj_DAS
             this.txtDescrip = new System.Windows.Forms.TextBox();
             this.txtCant = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.facturacionBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleFacturaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet16)).BeginInit();
             this.SuspendLayout();
-            // 
-            // facturacionBindingSource
-            // 
-            this.facturacionBindingSource.DataMember = "Facturacion";
-            this.facturacionBindingSource.DataSource = this.citasMedicasDataSet15;
-            // 
-            // citasMedicasDataSet15
-            // 
-            this.citasMedicasDataSet15.DataSetName = "CitasMedicasDataSet15";
-            this.citasMedicasDataSet15.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // facturacionTableAdapter
-            // 
-            this.facturacionTableAdapter.ClearBeforeFill = true;
-            // 
-            // detalleFacturaBindingSource
-            // 
-            this.detalleFacturaBindingSource.DataMember = "Detalle_Factura";
-            this.detalleFacturaBindingSource.DataSource = this.citasMedicasDataSet16;
-            // 
-            // citasMedicasDataSet16
-            // 
-            this.citasMedicasDataSet16.DataSetName = "CitasMedicasDataSet16";
-            this.citasMedicasDataSet16.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // detalle_FacturaTableAdapter
-            // 
-            this.detalle_FacturaTableAdapter.ClearBeforeFill = true;
+            
             // 
             // panel2
             // 
@@ -424,21 +393,15 @@ namespace Proj_DAS
             this.Text = "AddFactura";
             this.Load += new System.EventHandler(this.AddFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facturacionBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detalleFacturaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citasMedicasDataSet16)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private CitasMedicasDataSet15 citasMedicasDataSet15;
         private System.Windows.Forms.BindingSource facturacionBindingSource;
-        private CitasMedicasDataSet15TableAdapters.FacturacionTableAdapter facturacionTableAdapter;
-        private CitasMedicasDataSet16 citasMedicasDataSet16;
         private System.Windows.Forms.BindingSource detalleFacturaBindingSource;
-        private CitasMedicasDataSet16TableAdapters.Detalle_FacturaTableAdapter detalle_FacturaTableAdapter;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label label7;
