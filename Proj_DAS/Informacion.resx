@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Brindar la mejor atención médica, con calidez, mediante un equipo de salud totalmente comprometido en conjunto 
+con la mejor capacitación y tecnología de punta, y cumplir con los más alto estándares de calidad y seguridad para 
+con nuestros pacientes. </value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Crear un sistema integral de salud privada, que ofrezca gran variedad de especialidades médicas 
+a nuestros pacientes con el fin de satisfacer sus necesidades, además de ofrecer un trato cálido y familiar. </value>
+  </data>
 </root>
