@@ -289,7 +289,7 @@ namespace Proj_DAS
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(1288, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(402, 908);
+            this.label3.Size = new System.Drawing.Size(366, 908);
             this.label3.TabIndex = 53;
             this.label3.Text = resources.GetString("label3.Text");
             // 
