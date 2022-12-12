@@ -21,7 +21,9 @@ namespace Proj_DAS
 
         private void rreporteCitas_Load(object sender, EventArgs e)
         {
-            
+            // TODO: esta línea de código carga datos en la tabla 'citasDDS.Detalle_Citas' Puede moverla o quitarla según sea necesario.
+            this.detalle_CitasTableAdapter.Fill(this.citasDDS.Detalle_Citas);
+
 
         }
 
@@ -31,7 +33,7 @@ namespace Proj_DAS
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "CSV (*.csv)|*.csv";
-                sfd.FileName = "Output.csv";
+                sfd.FileName = "Citas_Output.csv";
                 bool fileError = false;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -80,8 +82,35 @@ namespace Proj_DAS
             }
             else
             {
-                MessageBox.Show("No Record To Export !!!", "Info");
+                MessageBox.Show("No hay datos que exportar", "Info");
             }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgCita.SelectAll();
+                DataObject copydata = dgCita.GetClipboardContent();
+                if (copydata != null) Clipboard.SetDataObject(copydata);
+                Microsoft.Office.Interop.Excel.Application xlapp = new Microsoft.Office.Interop.Excel.Application();
+                xlapp.Visible = true;
+                Microsoft.Office.Interop.Excel.Workbook xlWbook;
+                Microsoft.Office.Interop.Excel.Worksheet xlsheet;
+                object miseddata = System.Reflection.Missing.Value;
+                xlWbook = xlapp.Workbooks.Add(miseddata);
+
+                xlsheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWbook.Worksheets.get_Item(1);
+                Microsoft.Office.Interop.Excel.Range xlr = (Microsoft.Office.Interop.Excel.Range)xlsheet.Cells[1, 1];
+                xlr.Select();
+
+                xlsheet.PasteSpecial(xlr, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            }
+            catch
+            {
+                MessageBox.Show("No hay datos que exportar", "Info");
+            }
+            
         }
     }
 }

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CitasDDS" targetNamespace="http://tempuri.org/CitasDDS.xsd" xmlns:mstns="http://tempuri.org/CitasDDS.xsd" xmlns="http://tempuri.org/CitasDDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CitasMedicasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CitasMedicasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Proj_DAS.Properties.Settings.GlobalReference.Default.CitasMedicasConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Detalle_CitasTableAdapter" GeneratorDataComponentClassName="Detalle_CitasTableAdapter" Name="Detalle_Citas" UserDataComponentName="Detalle_CitasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CitasMedicasConnectionString (Settings)" DbObjectName="CitasMedicas.dbo.Detalle_Citas" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT cod_Cita, fechaCita, horaCita, cod_Medico, nombre, apellido1, apellido2, consultorio FROM dbo.Detalle_Citas</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cod_Cita" DataSetColumn="cod_Cita" />
+              <Mapping SourceColumn="fechaCita" DataSetColumn="fechaCita" />
+              <Mapping SourceColumn="horaCita" DataSetColumn="horaCita" />
+              <Mapping SourceColumn="cod_Medico" DataSetColumn="cod_Medico" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido1" DataSetColumn="apellido1" />
+              <Mapping SourceColumn="apellido2" DataSetColumn="apellido2" />
+              <Mapping SourceColumn="consultorio" DataSetColumn="consultorio" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CitasDDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CitasDDS" msprop:Generator_UserDSName="CitasDDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Detalle_Citas" msprop:Generator_TableClassName="Detalle_CitasDataTable" msprop:Generator_TableVarName="tableDetalle_Citas" msprop:Generator_TablePropName="Detalle_Citas" msprop:Generator_RowDeletingName="Detalle_CitasRowDeleting" msprop:Generator_RowChangingName="Detalle_CitasRowChanging" msprop:Generator_RowEvHandlerName="Detalle_CitasRowChangeEventHandler" msprop:Generator_RowDeletedName="Detalle_CitasRowDeleted" msprop:Generator_UserTableName="Detalle_Citas" msprop:Generator_RowChangedName="Detalle_CitasRowChanged" msprop:Generator_RowEvArgName="Detalle_CitasRowChangeEvent" msprop:Generator_RowClassName="Detalle_CitasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cod_Cita" msprop:Generator_ColumnVarNameInTable="columncod_Cita" msprop:Generator_ColumnPropNameInRow="cod_Cita" msprop:Generator_ColumnPropNameInTable="cod_CitaColumn" msprop:Generator_UserColumnName="cod_Cita" type="xs:decimal" />
+              <xs:element name="fechaCita" msprop:Generator_ColumnVarNameInTable="columnfechaCita" msprop:Generator_ColumnPropNameInRow="fechaCita" msprop:Generator_ColumnPropNameInTable="fechaCitaColumn" msprop:Generator_UserColumnName="fechaCita" type="xs:dateTime" />
+              <xs:element name="horaCita" msprop:Generator_ColumnVarNameInTable="columnhoraCita" msprop:Generator_ColumnPropNameInRow="horaCita" msprop:Generator_ColumnPropNameInTable="horaCitaColumn" msprop:Generator_UserColumnName="horaCita" type="xs:duration" />
+              <xs:element name="cod_Medico" msprop:Generator_ColumnVarNameInTable="columncod_Medico" msprop:Generator_ColumnPropNameInRow="cod_Medico" msprop:Generator_ColumnPropNameInTable="cod_MedicoColumn" msprop:Generator_UserColumnName="cod_Medico" type="xs:decimal" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido1" msprop:Generator_ColumnVarNameInTable="columnapellido1" msprop:Generator_ColumnPropNameInRow="apellido1" msprop:Generator_ColumnPropNameInTable="apellido1Column" msprop:Generator_UserColumnName="apellido1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido2" msprop:Generator_ColumnVarNameInTable="columnapellido2" msprop:Generator_ColumnPropNameInRow="apellido2" msprop:Generator_ColumnPropNameInTable="apellido2Column" msprop:Generator_UserColumnName="apellido2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="consultorio" msprop:Generator_ColumnVarNameInTable="columnconsultorio" msprop:Generator_ColumnPropNameInRow="consultorio" msprop:Generator_ColumnPropNameInTable="consultorioColumn" msprop:Generator_UserColumnName="consultorio" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Detalle_Citas" />
+      <xs:field xpath="mstns:cod_Cita" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -252,6 +252,11 @@
     <Compile Include="AddPax.Designer.cs">
       <DependentUpon>AddPax.cs</DependentUpon>
     </Compile>
+    <Compile Include="CitasDDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitasDDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Credenciales.cs">
       <SubType>Form</SubType>
@@ -284,6 +289,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSEspe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSfacturas2_0.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSfacturas2_0.xsd</DependentUpon>
     </Compile>
     <Compile Include="DSMedicos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -332,6 +342,12 @@
     </Compile>
     <Compile Include="PersonalEmp.Designer.cs">
       <DependentUpon>PersonalEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalMed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalMed.Designer.cs">
+      <DependentUpon>PersonalMed.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalPax.cs">
       <SubType>Form</SubType>
@@ -427,6 +443,9 @@
     <EmbeddedResource Include="PersonalEmp.resx">
       <DependentUpon>PersonalEmp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PersonalMed.resx">
+      <DependentUpon>PersonalMed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalPax.resx">
       <DependentUpon>PersonalPax.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,6 +460,17 @@
     <EmbeddedResource Include="rreporteCitas.resx">
       <DependentUpon>rreporteCitas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CitasDDS.xsc">
+      <DependentUpon>CitasDDS.xsd</DependentUpon>
+    </None>
+    <None Include="CitasDDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitasDDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitasDDS.xss">
+      <DependentUpon>CitasDDS.xsd</DependentUpon>
+    </None>
     <None Include="DisponibilidadDS.xsc">
       <DependentUpon>DisponibilidadDS.xsd</DependentUpon>
     </None>
@@ -484,6 +514,17 @@
     </None>
     <None Include="DSEspe.xss">
       <DependentUpon>DSEspe.xsd</DependentUpon>
+    </None>
+    <None Include="DSfacturas2_0.xsc">
+      <DependentUpon>DSfacturas2_0.xsd</DependentUpon>
+    </None>
+    <None Include="DSfacturas2_0.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSfacturas2_0.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSfacturas2_0.xss">
+      <DependentUpon>DSfacturas2_0.xsd</DependentUpon>
     </None>
     <None Include="DSMedicos.xsc">
       <DependentUpon>DSMedicos.xsd</DependentUpon>
@@ -671,6 +712,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reportes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

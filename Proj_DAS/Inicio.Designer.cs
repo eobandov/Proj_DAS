@@ -37,6 +37,7 @@ namespace Proj_DAS
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.pbMed = new System.Windows.Forms.PictureBox();
             this.pbEmp = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnModCita = new System.Windows.Forms.Button();
@@ -59,7 +60,7 @@ namespace Proj_DAS
             this.btnUsuario = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pbMed = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             button1 = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
@@ -67,10 +68,11 @@ namespace Proj_DAS
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.MenuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -167,6 +169,7 @@ namespace Proj_DAS
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.MenuVertical.Controls.Add(this.pictureBox2);
             this.MenuVertical.Controls.Add(this.pbMed);
             this.MenuVertical.Controls.Add(this.pbEmp);
             this.MenuVertical.Controls.Add(this.panel7);
@@ -197,13 +200,28 @@ namespace Proj_DAS
             this.MenuVertical.Size = new System.Drawing.Size(380, 804);
             this.MenuVertical.TabIndex = 1;
             // 
+            // pbMed
+            // 
+            this.pbMed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pbMed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMed.ErrorImage = null;
+            this.pbMed.Image = ((System.Drawing.Image)(resources.GetObject("pbMed.Image")));
+            this.pbMed.Location = new System.Drawing.Point(79, 740);
+            this.pbMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbMed.Name = "pbMed";
+            this.pbMed.Size = new System.Drawing.Size(70, 53);
+            this.pbMed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMed.TabIndex = 21;
+            this.pbMed.TabStop = false;
+            this.pbMed.Click += new System.EventHandler(this.pbMed_Click);
+            // 
             // pbEmp
             // 
-            this.pbEmp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbEmp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pbEmp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbEmp.ErrorImage = null;
             this.pbEmp.Image = ((System.Drawing.Image)(resources.GetObject("pbEmp.Image")));
-            this.pbEmp.Location = new System.Drawing.Point(304, 740);
+            this.pbEmp.Location = new System.Drawing.Point(155, 740);
             this.pbEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbEmp.Name = "pbEmp";
             this.pbEmp.Size = new System.Drawing.Size(70, 53);
@@ -241,7 +259,7 @@ namespace Proj_DAS
             // 
             // pbPax
             // 
-            this.pbPax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbPax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pbPax.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPax.ErrorImage = null;
             this.pbPax.Image = ((System.Drawing.Image)(resources.GetObject("pbPax.Image")));
@@ -500,20 +518,19 @@ namespace Proj_DAS
             this.panelContenedor.Size = new System.Drawing.Size(1320, 804);
             this.panelContenedor.TabIndex = 2;
             // 
-            // pbMed
+            // pictureBox2
             // 
-            this.pbMed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMed.ErrorImage = null;
-            this.pbMed.Image = ((System.Drawing.Image)(resources.GetObject("pbMed.Image")));
-            this.pbMed.Location = new System.Drawing.Point(157, 740);
-            this.pbMed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbMed.Name = "pbMed";
-            this.pbMed.Size = new System.Drawing.Size(70, 53);
-            this.pbMed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMed.TabIndex = 21;
-            this.pbMed.TabStop = false;
-            this.pbMed.Click += new System.EventHandler(this.pbMed_Click);
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(314, 752);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(60, 41);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
             // Inicio
             // 
@@ -534,10 +551,11 @@ namespace Proj_DAS
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.MenuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,6 +591,7 @@ namespace Proj_DAS
         private System.Windows.Forms.Button btnModCita;
         private System.Windows.Forms.PictureBox pbEmp;
         private System.Windows.Forms.PictureBox pbMed;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

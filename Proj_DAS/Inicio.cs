@@ -16,12 +16,56 @@ namespace Proj_DAS
     {
         //Formulario BASE NO USAR
         public int user;
-        public Inicio(int User)
+        public Inicio(int User,string mod)
         {
             InitializeComponent();
             this.user = User;
+            Permisos(mod);
         }
 
+        private void Permisos(string mod)
+        {
+            switch (mod)
+            {
+                case "Medico":
+                    btnUsuario.Enabled = false;
+                    btnMedicos.Enabled = true; //Editar
+                    btnPaciente.Enabled = true; //Editar
+                    btnCita.Enabled = true;
+                    btnPago.Enabled = false;
+                    btnRCitas.Enabled = false;
+                    btnRFacturas.Enabled = false;
+                    pbPax.Enabled = false;
+                    pbMed.Enabled = true;
+                    pbEmp.Enabled = false;                    
+                    break;
+                case "Paciente":
+                    btnUsuario.Enabled = false;
+                    btnMedicos.Enabled = false;
+                    btnPaciente.Enabled = false;
+                    btnCita.Enabled = false;
+                    btnPago.Enabled = false;
+                    btnRCitas.Enabled = false;
+                    btnRFacturas.Enabled = false;
+                    pbPax.Enabled = true;
+                    pbMed.Enabled = false;
+                    pbEmp.Enabled = false;                   
+                    break;
+                case "Empleado":
+                    btnUsuario.Enabled = true;
+                    btnMedicos.Enabled = true;
+                    btnPaciente.Enabled = true;
+                    btnCita.Enabled = true;
+                    btnPago.Enabled = true;
+                    btnRCitas.Enabled = true;
+                    btnRFacturas.Enabled = true;
+                    pbPax.Enabled = false;
+                    pbMed.Enabled = false;
+                    pbEmp.Enabled = true;
+                    break;
+                default: break;
+            }
+        }
         private void AbrirForm(Object formSec)
         {
             if (this.panelContenedor.Controls.Count > 0)
@@ -131,6 +175,16 @@ namespace Proj_DAS
         private void pbMed_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            var fr1 = new Login2();
+            fr1.Location = this.Location;
+            fr1.StartPosition = FormStartPosition.Manual;
+            fr1.FormClosing += delegate { this.Show(); };
+            fr1.Show();
+            this.Hide();
         }
     }
 }

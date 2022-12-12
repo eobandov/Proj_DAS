@@ -43,7 +43,16 @@ namespace Proj_DAS
             this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgDomicilio = new System.Windows.Forms.DataGridView();
+            this.num_Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num_Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_Paciente1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.canton = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distrito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.otrasSenhas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgPax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDomicilio)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -130,11 +139,11 @@ namespace Proj_DAS
             this.correo});
             this.dgPax.Location = new System.Drawing.Point(43, 88);
             this.dgPax.Name = "dgPax";
-            this.dgPax.ReadOnly = true;
             this.dgPax.RowHeadersWidth = 51;
             this.dgPax.RowTemplate.Height = 24;
-            this.dgPax.Size = new System.Drawing.Size(1142, 265);
+            this.dgPax.Size = new System.Drawing.Size(1025, 105);
             this.dgPax.TabIndex = 68;
+            this.dgPax.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgPax_RowValidating);
             // 
             // id_Paciente
             // 
@@ -142,6 +151,7 @@ namespace Proj_DAS
             this.id_Paciente.HeaderText = "Id ";
             this.id_Paciente.MinimumWidth = 6;
             this.id_Paciente.Name = "id_Paciente";
+            this.id_Paciente.ReadOnly = true;
             this.id_Paciente.Width = 125;
             // 
             // nombre
@@ -150,6 +160,7 @@ namespace Proj_DAS
             this.nombre.HeaderText = "Nombre";
             this.nombre.MinimumWidth = 6;
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             this.nombre.Width = 125;
             // 
             // apellido1
@@ -158,6 +169,7 @@ namespace Proj_DAS
             this.apellido1.HeaderText = "Apellido Paterno";
             this.apellido1.MinimumWidth = 6;
             this.apellido1.Name = "apellido1";
+            this.apellido1.ReadOnly = true;
             this.apellido1.Width = 125;
             // 
             // apellido2
@@ -166,6 +178,7 @@ namespace Proj_DAS
             this.apellido2.HeaderText = "Apellido Materno";
             this.apellido2.MinimumWidth = 6;
             this.apellido2.Name = "apellido2";
+            this.apellido2.ReadOnly = true;
             this.apellido2.Width = 125;
             // 
             // edad
@@ -174,6 +187,7 @@ namespace Proj_DAS
             this.edad.HeaderText = "Edad";
             this.edad.MinimumWidth = 6;
             this.edad.Name = "edad";
+            this.edad.ReadOnly = true;
             this.edad.Width = 125;
             // 
             // tel
@@ -182,6 +196,7 @@ namespace Proj_DAS
             this.tel.HeaderText = "Telefono";
             this.tel.MinimumWidth = 6;
             this.tel.Name = "tel";
+            this.tel.ReadOnly = true;
             this.tel.Width = 125;
             // 
             // correo
@@ -190,14 +205,103 @@ namespace Proj_DAS
             this.correo.HeaderText = "Correo";
             this.correo.MinimumWidth = 6;
             this.correo.Name = "correo";
+            this.correo.ReadOnly = true;
             this.correo.Width = 125;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(343, 30);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Datos Personales - Paciente";
+            // 
+            // dgDomicilio
+            // 
+            this.dgDomicilio.AllowUserToAddRows = false;
+            this.dgDomicilio.AllowUserToDeleteRows = false;
+            this.dgDomicilio.BackgroundColor = System.Drawing.Color.Thistle;
+            this.dgDomicilio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDomicilio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.num_Provincia,
+            this.num_Domicilio,
+            this.id_Paciente1,
+            this.canton,
+            this.Distrito,
+            this.otrasSenhas});
+            this.dgDomicilio.Location = new System.Drawing.Point(43, 208);
+            this.dgDomicilio.Name = "dgDomicilio";
+            this.dgDomicilio.RowHeadersWidth = 51;
+            this.dgDomicilio.RowTemplate.Height = 24;
+            this.dgDomicilio.Size = new System.Drawing.Size(1025, 105);
+            this.dgDomicilio.TabIndex = 70;
+            this.dgDomicilio.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgDomicilio_RowValidating);
+            // 
+            // num_Provincia
+            // 
+            this.num_Provincia.DataPropertyName = "num_Provincia";
+            this.num_Provincia.HeaderText = "num_Provincia";
+            this.num_Provincia.MinimumWidth = 6;
+            this.num_Provincia.Name = "num_Provincia";
+            this.num_Provincia.ReadOnly = true;
+            this.num_Provincia.Width = 125;
+            // 
+            // num_Domicilio
+            // 
+            this.num_Domicilio.DataPropertyName = "num_Domicilio";
+            this.num_Domicilio.HeaderText = "num_Domicilio";
+            this.num_Domicilio.MinimumWidth = 6;
+            this.num_Domicilio.Name = "num_Domicilio";
+            this.num_Domicilio.ReadOnly = true;
+            this.num_Domicilio.Width = 125;
+            // 
+            // id_Paciente1
+            // 
+            this.id_Paciente1.DataPropertyName = "id_Paciente1";
+            this.id_Paciente1.HeaderText = "id_Paciente";
+            this.id_Paciente1.MinimumWidth = 6;
+            this.id_Paciente1.Name = "id_Paciente1";
+            this.id_Paciente1.ReadOnly = true;
+            this.id_Paciente1.Width = 125;
+            // 
+            // canton
+            // 
+            this.canton.DataPropertyName = "canton";
+            this.canton.HeaderText = "canton";
+            this.canton.MinimumWidth = 6;
+            this.canton.Name = "canton";
+            this.canton.ReadOnly = true;
+            this.canton.Width = 125;
+            // 
+            // Distrito
+            // 
+            this.Distrito.DataPropertyName = "Distrito";
+            this.Distrito.HeaderText = "Distrito";
+            this.Distrito.MinimumWidth = 6;
+            this.Distrito.Name = "Distrito";
+            this.Distrito.ReadOnly = true;
+            this.Distrito.Width = 125;
+            // 
+            // otrasSenhas
+            // 
+            this.otrasSenhas.DataPropertyName = "otrasSenhas";
+            this.otrasSenhas.HeaderText = "Otras Señas";
+            this.otrasSenhas.MinimumWidth = 6;
+            this.otrasSenhas.Name = "otrasSenhas";
+            this.otrasSenhas.ReadOnly = true;
+            this.otrasSenhas.Width = 125;
             // 
             // PersonalPax
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
-            this.ClientSize = new System.Drawing.Size(1263, 827);
+            this.ClientSize = new System.Drawing.Size(1237, 827);
+            this.Controls.Add(this.dgDomicilio);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgPax);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAgregar);
@@ -209,6 +313,7 @@ namespace Proj_DAS
             this.Name = "PersonalPax";
             this.Text = "Personal";
             ((System.ComponentModel.ISupportInitialize)(this.dgPax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDomicilio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +334,13 @@ namespace Proj_DAS
         private System.Windows.Forms.DataGridViewTextBoxColumn edad;
         private System.Windows.Forms.DataGridViewTextBoxColumn tel;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgDomicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_Provincia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num_Domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_Paciente1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn canton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Distrito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn otrasSenhas;
     }
 }

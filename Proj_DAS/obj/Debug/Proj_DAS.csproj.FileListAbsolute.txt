@@ -105,3 +105,4 @@ C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.cspro
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.exe
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.pdb
 C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.csproj.AssemblyReference.cache
+C:\Users\Emily Massielle\source\repos\Proj_DAS\Proj_DAS\obj\Debug\Proj_DAS.csproj.ResolveComReference.cache

@@ -37,9 +37,9 @@ namespace Proj_DAS
             txtContr.Clear();
         }
 
-        public void abrir_inicio(int ww)
+        public void abrir_inicio(int ww, string mod)
         {
-            var fr1 = new Inicio(ww);
+            var fr1 = new Inicio(ww,mod);
             fr1.Location = this.Location;
             fr1.StartPosition = FormStartPosition.Manual;
             fr1.FormClosing += delegate { this.Show(); };
@@ -55,7 +55,7 @@ namespace Proj_DAS
             fr1.Show();
             this.Hide();
         }
-        private bool login(string cadena)
+        private bool login(string cadena, string mod)
         {
             bool flag = false;
             SqlConnection cn = new SqlConnection();
@@ -77,7 +77,7 @@ namespace Proj_DAS
                     //Cerrando la conexion a la base de datos
                     cn.Close();
                     MessageBox.Show("Bienvenid@ " + us + "!", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    abrir_inicio(ww);
+                    abrir_inicio(ww,mod);
                     flag = true;
                 }
                 else
@@ -95,17 +95,20 @@ namespace Proj_DAS
         private void btnConexion_Click(object sender, EventArgs e)
         {
             //Log in            
-            string query;
+            string query,mod;
             if (txtUsuario.Text != "" || txtContr.Text != "")
             {
                 query = "select * from [CitasMedicas].[dbo].[Credenciales_Medicos] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
-                if (login(query) != true)
+                mod = "Medico";
+                if (login(query,mod) != true)
                 {
                     query = "select * from [CitasMedicas].[dbo].[Credenciales_Pacientes] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
-                    if (login(query) != true)
+                    mod = "Paciente";
+                    if (login(query,mod) != true)
                     {
                         query = "select * from [CitasMedicas].[dbo].[Credenciales_Empleados] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
-                        if (login(query) != true) MessageBox.Show("Datos de usuario y contraseña no encontrados", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        mod = "Empleado";
+                        if (login(query,mod) != true) MessageBox.Show("Datos de usuario y contraseña no encontrados", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
