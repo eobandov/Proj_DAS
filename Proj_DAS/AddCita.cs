@@ -93,5 +93,18 @@ namespace Proj_DAS
             else MessageBox.Show("Favor de ingresar todos los datos", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             init();
         }
+
+        private void AddCita_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'pruebaEmpDSDS.Empleados' Puede moverla o quitarla según sea necesario.
+            this.empleadosTableAdapter.Fill(this.pruebaEmpDSDS.Empleados);
+            // TODO: esta línea de código carga datos en la tabla 'pruebPaxDSDS.Pacientes' Puede moverla o quitarla según sea necesario.
+            this.pacientesTableAdapter.Fill(this.pruebPaxDSDS.Pacientes);
+            // TODO: esta línea de código carga datos en la tabla 'pruebaMedicosDSDS.Medicos' Puede moverla o quitarla según sea necesario.
+            this.medicosTableAdapter.Fill(this.pruebaMedicosDSDS.Medicos);
+            // TODO: esta línea de código carga datos en la tabla 'pruebaCitasDSDS.Citas' Puede moverla o quitarla según sea necesario.
+            this.citasTableAdapter.Fill(this.pruebaCitasDSDS.Citas);
+
+        }
     }
 }

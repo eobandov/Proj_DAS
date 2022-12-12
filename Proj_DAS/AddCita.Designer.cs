@@ -29,27 +29,48 @@ namespace Proj_DAS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddCita));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCita = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMed = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPax = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtConsul = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtEmp = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.txtCita = new System.Windows.Forms.ComboBox();
+            this.txtMed = new System.Windows.Forms.ComboBox();
+            this.txtPax = new System.Windows.Forms.ComboBox();
+            this.txtConsul = new System.Windows.Forms.ComboBox();
+            this.txtEmp = new System.Windows.Forms.ComboBox();
+            this.pruebaCitasDSDS = new Proj_DAS.pruebaCitasDSDS();
+            this.citasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.citasTableAdapter = new Proj_DAS.pruebaCitasDSDSTableAdapters.CitasTableAdapter();
+            this.pruebaMedicosDSDS = new Proj_DAS.pruebaMedicosDSDS();
+            this.medicosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicosTableAdapter = new Proj_DAS.pruebaMedicosDSDSTableAdapters.MedicosTableAdapter();
+            this.pruebPaxDSDS = new Proj_DAS.pruebPaxDSDS();
+            this.pacientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pacientesTableAdapter = new Proj_DAS.pruebPaxDSDSTableAdapters.PacientesTableAdapter();
+            this.pruebaEmpDSDS = new Proj_DAS.pruebaEmpDSDS();
+            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empleadosTableAdapter = new Proj_DAS.pruebaEmpDSDSTableAdapters.EmpleadosTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaCitasDSDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaMedicosDSDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebPaxDSDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaEmpDSDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,15 +84,6 @@ namespace Proj_DAS
             this.label1.TabIndex = 23;
             this.label1.Text = "Codigo de Cita";
             // 
-            // txtCita
-            // 
-            this.txtCita.Enabled = false;
-            this.txtCita.Location = new System.Drawing.Point(350, 127);
-            this.txtCita.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCita.Name = "txtCita";
-            this.txtCita.Size = new System.Drawing.Size(223, 22);
-            this.txtCita.TabIndex = 22;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -83,14 +95,6 @@ namespace Proj_DAS
             this.label2.TabIndex = 25;
             this.label2.Text = "Codigo de Medico";
             // 
-            // txtMed
-            // 
-            this.txtMed.Location = new System.Drawing.Point(350, 179);
-            this.txtMed.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMed.Name = "txtMed";
-            this.txtMed.Size = new System.Drawing.Size(223, 22);
-            this.txtMed.TabIndex = 24;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -101,14 +105,6 @@ namespace Proj_DAS
             this.label3.Size = new System.Drawing.Size(208, 23);
             this.label3.TabIndex = 27;
             this.label3.Text = "Codigo de Paciente";
-            // 
-            // txtPax
-            // 
-            this.txtPax.Location = new System.Drawing.Point(350, 231);
-            this.txtPax.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPax.Name = "txtPax";
-            this.txtPax.Size = new System.Drawing.Size(223, 22);
-            this.txtPax.TabIndex = 26;
             // 
             // label4
             // 
@@ -159,14 +155,6 @@ namespace Proj_DAS
             this.label6.TabIndex = 33;
             this.label6.Text = "Consultorio";
             // 
-            // txtConsul
-            // 
-            this.txtConsul.Location = new System.Drawing.Point(350, 365);
-            this.txtConsul.Margin = new System.Windows.Forms.Padding(4);
-            this.txtConsul.Name = "txtConsul";
-            this.txtConsul.Size = new System.Drawing.Size(223, 22);
-            this.txtConsul.TabIndex = 32;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -177,14 +165,6 @@ namespace Proj_DAS
             this.label7.Size = new System.Drawing.Size(224, 23);
             this.label7.TabIndex = 35;
             this.label7.Text = "Codigo de Empleado";
-            // 
-            // txtEmp
-            // 
-            this.txtEmp.Location = new System.Drawing.Point(350, 407);
-            this.txtEmp.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmp.Name = "txtEmp";
-            this.txtEmp.Size = new System.Drawing.Size(223, 22);
-            this.txtEmp.TabIndex = 34;
             // 
             // panel2
             // 
@@ -261,12 +241,129 @@ namespace Proj_DAS
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // txtCita
+            // 
+            this.txtCita.DataSource = this.citasBindingSource;
+            this.txtCita.DisplayMember = "cod_Cita";
+            this.txtCita.FormattingEnabled = true;
+            this.txtCita.Location = new System.Drawing.Point(350, 127);
+            this.txtCita.Name = "txtCita";
+            this.txtCita.Size = new System.Drawing.Size(223, 24);
+            this.txtCita.TabIndex = 57;
+            this.txtCita.ValueMember = "cod_Cita";
+            // 
+            // txtMed
+            // 
+            this.txtMed.DataSource = this.medicosBindingSource;
+            this.txtMed.DisplayMember = "cod_Medico";
+            this.txtMed.FormattingEnabled = true;
+            this.txtMed.Location = new System.Drawing.Point(350, 179);
+            this.txtMed.Name = "txtMed";
+            this.txtMed.Size = new System.Drawing.Size(223, 24);
+            this.txtMed.TabIndex = 58;
+            this.txtMed.ValueMember = "cod_Medico";
+            // 
+            // txtPax
+            // 
+            this.txtPax.DataSource = this.pacientesBindingSource;
+            this.txtPax.DisplayMember = "id_Paciente";
+            this.txtPax.FormattingEnabled = true;
+            this.txtPax.Location = new System.Drawing.Point(350, 231);
+            this.txtPax.Name = "txtPax";
+            this.txtPax.Size = new System.Drawing.Size(223, 24);
+            this.txtPax.TabIndex = 59;
+            this.txtPax.ValueMember = "id_Paciente";
+            // 
+            // txtConsul
+            // 
+            this.txtConsul.FormattingEnabled = true;
+            this.txtConsul.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.txtConsul.Location = new System.Drawing.Point(350, 365);
+            this.txtConsul.Name = "txtConsul";
+            this.txtConsul.Size = new System.Drawing.Size(223, 24);
+            this.txtConsul.TabIndex = 60;
+            // 
+            // txtEmp
+            // 
+            this.txtEmp.DataSource = this.empleadosBindingSource;
+            this.txtEmp.DisplayMember = "id_Empleado";
+            this.txtEmp.FormattingEnabled = true;
+            this.txtEmp.Location = new System.Drawing.Point(350, 407);
+            this.txtEmp.Name = "txtEmp";
+            this.txtEmp.Size = new System.Drawing.Size(223, 24);
+            this.txtEmp.TabIndex = 61;
+            this.txtEmp.ValueMember = "id_Empleado";
+            // 
+            // pruebaCitasDSDS
+            // 
+            this.pruebaCitasDSDS.DataSetName = "pruebaCitasDSDS";
+            this.pruebaCitasDSDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // citasBindingSource
+            // 
+            this.citasBindingSource.DataMember = "Citas";
+            this.citasBindingSource.DataSource = this.pruebaCitasDSDS;
+            // 
+            // citasTableAdapter
+            // 
+            this.citasTableAdapter.ClearBeforeFill = true;
+            // 
+            // pruebaMedicosDSDS
+            // 
+            this.pruebaMedicosDSDS.DataSetName = "pruebaMedicosDSDS";
+            this.pruebaMedicosDSDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // medicosBindingSource
+            // 
+            this.medicosBindingSource.DataMember = "Medicos";
+            this.medicosBindingSource.DataSource = this.pruebaMedicosDSDS;
+            // 
+            // medicosTableAdapter
+            // 
+            this.medicosTableAdapter.ClearBeforeFill = true;
+            // 
+            // pruebPaxDSDS
+            // 
+            this.pruebPaxDSDS.DataSetName = "pruebPaxDSDS";
+            this.pruebPaxDSDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pacientesBindingSource
+            // 
+            this.pacientesBindingSource.DataMember = "Pacientes";
+            this.pacientesBindingSource.DataSource = this.pruebPaxDSDS;
+            // 
+            // pacientesTableAdapter
+            // 
+            this.pacientesTableAdapter.ClearBeforeFill = true;
+            // 
+            // pruebaEmpDSDS
+            // 
+            this.pruebaEmpDSDS.DataSetName = "pruebaEmpDSDS";
+            this.pruebaEmpDSDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // empleadosBindingSource
+            // 
+            this.empleadosBindingSource.DataMember = "Empleados";
+            this.empleadosBindingSource.DataSource = this.pruebaEmpDSDS;
+            // 
+            // empleadosTableAdapter
+            // 
+            this.empleadosTableAdapter.ClearBeforeFill = true;
+            // 
             // AddCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.ClientSize = new System.Drawing.Size(1256, 621);
+            this.Controls.Add(this.txtEmp);
+            this.Controls.Add(this.txtConsul);
+            this.Controls.Add(this.txtPax);
+            this.Controls.Add(this.txtMed);
+            this.Controls.Add(this.txtCita);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label9);
@@ -274,22 +371,26 @@ namespace Proj_DAS
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtEmp);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtConsul);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtHora);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPax);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMed);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCita);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddCita";
             this.Text = "AddCita";
+            this.Load += new System.EventHandler(this.AddCita_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaCitasDSDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaMedicosDSDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebPaxDSDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pacientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pruebaEmpDSDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,24 +399,36 @@ namespace Proj_DAS
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCita;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMed;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPax;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtConsul;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtEmp;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ComboBox txtCita;
+        private System.Windows.Forms.ComboBox txtMed;
+        private System.Windows.Forms.ComboBox txtPax;
+        private System.Windows.Forms.ComboBox txtConsul;
+        private System.Windows.Forms.ComboBox txtEmp;
+        private pruebaCitasDSDS pruebaCitasDSDS;
+        private System.Windows.Forms.BindingSource citasBindingSource;
+        private pruebaCitasDSDSTableAdapters.CitasTableAdapter citasTableAdapter;
+        private pruebaMedicosDSDS pruebaMedicosDSDS;
+        private System.Windows.Forms.BindingSource medicosBindingSource;
+        private pruebaMedicosDSDSTableAdapters.MedicosTableAdapter medicosTableAdapter;
+        private pruebPaxDSDS pruebPaxDSDS;
+        private System.Windows.Forms.BindingSource pacientesBindingSource;
+        private pruebPaxDSDSTableAdapters.PacientesTableAdapter pacientesTableAdapter;
+        private pruebaEmpDSDS pruebaEmpDSDS;
+        private System.Windows.Forms.BindingSource empleadosBindingSource;
+        private pruebaEmpDSDSTableAdapters.EmpleadosTableAdapter empleadosTableAdapter;
     }
 }
