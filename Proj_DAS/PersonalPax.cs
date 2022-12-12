@@ -39,13 +39,16 @@ namespace Proj_DAS
             con.Open();
             try
             {
-                string query = string.Format("select * from [CitasMedicas].[dbo].[Empleados] WHERE id_Empleado="+user) ;
+                string query = string.Format("select * from [CitasMedicas].[dbo].[Pacientes] WHERE id_Paciente="+user) ;
                 SqlCommand comando = new SqlCommand(query, con);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.Read())
                 {
-                    string[] row1 = new string[] { reader.GetInt32(0).ToString(), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4).ToString(), reader.GetString(5) };
-                    dgPax.Rows.Add(row1);                   
+                    string[] row1 = new string[] { reader.GetInt32(0).ToString(), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                        reader.GetInt32(4).ToString(), reader.GetInt32(5).ToString(), reader.GetString(6) };
+                    dgPax.Rows.Add(row1);
+                    txtContr.Enabled = true;
+                    txtUsuario.Enabled = true;
                 }
                 else MessageBox.Show("Los datos no se pudieron obtener", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -56,30 +59,29 @@ namespace Proj_DAS
             }
             con.Close();
         }
-        //private void btnAgregar_Click(object sender, EventArgs e)
-        //{
-        //    if (txtUsuario.Text != "" && txtContr.Text != "" )
-        //    {
-        //        SqlConnection con = new SqlConnection();
-        //        con = conexion();
-        //        con.Open();
-        //        try
-        //        {
-        //            string query = string.Format("INSERT INTO [dbo].[Credenciales_{0}] VALUES {1},'{2}','{3}'",mod, txtId.Text, txtUsuario.Text, txtContr.Text);
-        //            var cmd = new SqlCommand(query, con);
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        }
-        //        con.Close();
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text != "" && txtContr.Text != "")
+            {
+                SqlConnection con = new SqlConnection();
+                con = conexion();
+                con.Open();
+                try
+                {
+                    string query = string.Format("INSERT INTO [dbo].[Credenciales_Pacientes] ([usuario],[contrasenha]) VALUES '{2}','{3}'", txtUsuario.Text, txtContr.Text);
+                    var cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                con.Close();
 
-        //    }
-        //    else MessageBox.Show("Los datos son incorrectos", "Fallo al agregar credenciales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else MessageBox.Show("Los datos son incorrectos", "Fallo al agregar credenciales", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        //}
-
+        }
 
     }
 }

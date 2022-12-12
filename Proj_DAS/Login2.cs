@@ -55,49 +55,61 @@ namespace Proj_DAS
             fr1.Show();
             this.Hide();
         }
-        private void btnConexion_Click(object sender, EventArgs e)
+        private bool login(string cadena)
         {
-            //Log in            
-            
-            if (txtUsuario.Text != "" || txtContr.Text != "")
+            bool flag = false;
+            SqlConnection cn = new SqlConnection();
+            cn = conexion();
+            cn.Open();
+            try
             {
-                //Abrir conexion
-                SqlConnection cn = new SqlConnection();
-                cn = conexion();
-                cn.Open();
-
-                //Enviar query
-                string cadena = "select * from [CitasMedicas].[dbo].[Credenciales_Empleados] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text+"'";
-
                 SqlCommand comando = new SqlCommand(cadena, cn);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.Read())
                 {
                     decimal t;
                     int ww;
-                    string us, cont;
+                    string us;
                     user = new Usuario();
-                    t= reader.GetDecimal(0);
+                    t = reader.GetDecimal(0);
                     ww = Decimal.ToInt32(t);
-                    us= reader.GetString(1);
-                    cont = reader.GetString(2);
+                    us = reader.GetString(1);
                     //Cerrando la conexion a la base de datos
                     cn.Close();
-                    //
                     MessageBox.Show("Bienvenid@ " + us + "!", "Inicio de sesión exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     abrir_inicio(ww);
+                    flag = true;
                 }
                 else
                 {
-                    MessageBox.Show("Los datos son incorrectos", "Fallo de inicio de sesion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }                
-                cn.Close();
-
+                     flag = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Favor de ingresar datos de usuario y contraseña", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            cn.Close();
+            return flag;
+        }
+        private void btnConexion_Click(object sender, EventArgs e)
+        {
+            //Log in            
+            string query;
+            if (txtUsuario.Text != "" || txtContr.Text != "")
+            {
+                query = "select * from [CitasMedicas].[dbo].[Credenciales_Medicos] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
+                if (login(query) != true)
+                {
+                    query = "select * from [CitasMedicas].[dbo].[Credenciales_Pacientes] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
+                    if (login(query) != true)
+                    {
+                        query = "select * from [CitasMedicas].[dbo].[Credenciales_Empleados] WHERE usuario='" + txtUsuario.Text + "' AND contrasenha='" + txtContr.Text + "'";
+                        if (login(query) != true) MessageBox.Show("Datos de usuario y contraseña no encontrados", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else MessageBox.Show("Favor de ingresar datos de usuario y contraseña", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -129,7 +141,6 @@ namespace Proj_DAS
         {
             abrir_cred();
         }
-
 
     }
 }

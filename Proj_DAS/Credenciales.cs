@@ -15,6 +15,7 @@ namespace Proj_DAS
         public Credenciales()
         {
             InitializeComponent();
+            limpiar();
         }
         public static SqlConnection conexion()
         {
@@ -38,10 +39,54 @@ namespace Proj_DAS
             abrir_login();
            
         }
+        public void limpiar()
+        {
+            txtUsuario.Clear();
+            txtContr.Clear();
+            txtValidar.Clear();
+        }
 
+        private bool crearCred(string cadena)
+        {
+            bool flag = false;
+            if (txtContr.Text == txtValidar.Text)
+            {
+                SqlConnection cn = new SqlConnection();
+                cn = conexion();
+                cn.Open();
+                try
+                {
+                    SqlCommand comando = new SqlCommand(cadena, cn);
+                    comando.ExecuteNonQuery();
+                    flag = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    flag = false;
+                }
+                cn.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ambas contraseñas no coinciden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return flag;
+        }
         private void btnConexion_Click(object sender, EventArgs e)
         {
-            
+            String cadena=string.Format("INSERT INTO[dbo].[Credenciales_Pacientes]([usuario],[contrasenha]) VALUES('{0}', '{1}'", txtContr.Text, txtValidar.Text);
+            if (crearCred(cadena)!=true)
+            {
+                cadena = string.Format("INSERT INTO[dbo].[Credenciales_Empleados]([usuario],[contrasenha]) VALUES('{0}', '{1}'", txtContr.Text, txtValidar.Text);
+                if (crearCred(cadena) != true)
+                {
+                    cadena = string.Format("INSERT INTO[dbo].[Credenciales_Medicos]([usuario],[contrasenha]) VALUES('{0}', '{1}'", txtContr.Text, txtValidar.Text);
+                    if (crearCred(cadena) != true) MessageBox.Show("Datos de usuario y contraseña no encontrados, favor contactar a los administradores", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else MessageBox.Show("Faltan datos", "Error de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
         }
     }
 }

@@ -292,6 +292,11 @@
     </Compile>
     <Compile Include="Empleado.cs" />
     <Compile Include="Factura.cs" />
+    <Compile Include="historialDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>historialDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Informacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +317,11 @@
     </Compile>
     <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />
+    <Compile Include="pacienteDSprueba.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pacienteDSprueba.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PacientesDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,8 +339,48 @@
     <Compile Include="PersonalPax.Designer.cs">
       <DependentUpon>PersonalPax.cs</DependentUpon>
     </Compile>
+    <Compile Include="preciosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>preciosDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pruebaCitaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaCitaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaEmpDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaEmpDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaEspecialidadDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaEspecialidadDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaFacturaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaFacturaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaMetodoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaMetodoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaPacienteDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaPacienteDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaTarifaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pruebaTarifaDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="reporteFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +496,28 @@
     <None Include="DSMedicos.xss">
       <DependentUpon>DSMedicos.xsd</DependentUpon>
     </None>
+    <None Include="historialDS.xsc">
+      <DependentUpon>historialDS.xsd</DependentUpon>
+    </None>
+    <None Include="historialDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>historialDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="historialDS.xss">
+      <DependentUpon>historialDS.xsd</DependentUpon>
+    </None>
+    <None Include="pacienteDSprueba.xsc">
+      <DependentUpon>pacienteDSprueba.xsd</DependentUpon>
+    </None>
+    <None Include="pacienteDSprueba.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pacienteDSprueba.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pacienteDSprueba.xss">
+      <DependentUpon>pacienteDSprueba.xsd</DependentUpon>
+    </None>
     <None Include="PacientesDS.xsc">
       <DependentUpon>PacientesDS.xsd</DependentUpon>
     </None>
@@ -458,6 +530,17 @@
       <DependentUpon>PacientesDS.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="preciosDS.xsc">
+      <DependentUpon>preciosDS.xsd</DependentUpon>
+    </None>
+    <None Include="preciosDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>preciosDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="preciosDS.xss">
+      <DependentUpon>preciosDS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -477,6 +560,83 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="pruebaCitaDS.xsc">
+      <DependentUpon>pruebaCitaDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaCitaDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaCitaDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaCitaDS.xss">
+      <DependentUpon>pruebaCitaDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaEmpDS.xsc">
+      <DependentUpon>pruebaEmpDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaEmpDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaEmpDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaEmpDS.xss">
+      <DependentUpon>pruebaEmpDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaEspecialidadDS.xsc">
+      <DependentUpon>pruebaEspecialidadDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaEspecialidadDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaEspecialidadDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaEspecialidadDS.xss">
+      <DependentUpon>pruebaEspecialidadDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaFacturaDS.xsc">
+      <DependentUpon>pruebaFacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaFacturaDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaFacturaDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaFacturaDS.xss">
+      <DependentUpon>pruebaFacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaMetodoDS.xsc">
+      <DependentUpon>pruebaMetodoDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaMetodoDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaMetodoDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaMetodoDS.xss">
+      <DependentUpon>pruebaMetodoDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaPacienteDS.xsc">
+      <DependentUpon>pruebaPacienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaPacienteDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaPacienteDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaPacienteDS.xss">
+      <DependentUpon>pruebaPacienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaTarifaDS.xsc">
+      <DependentUpon>pruebaTarifaDS.xsd</DependentUpon>
+    </None>
+    <None Include="pruebaTarifaDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pruebaTarifaDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pruebaTarifaDS.xss">
+      <DependentUpon>pruebaTarifaDS.xsd</DependentUpon>
+    </None>
     <None Include="Resources\cerrar.png" />
   </ItemGroup>
   <ItemGroup>

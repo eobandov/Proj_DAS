@@ -112,6 +112,7 @@ namespace Proj_DAS
             this.btnAgregar.TabIndex = 66;
             this.btnAgregar.Text = "Agregar nuevo usuario";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgPax
             // 
@@ -129,6 +130,7 @@ namespace Proj_DAS
             this.correo});
             this.dgPax.Location = new System.Drawing.Point(43, 88);
             this.dgPax.Name = "dgPax";
+            this.dgPax.ReadOnly = true;
             this.dgPax.RowHeadersWidth = 51;
             this.dgPax.RowTemplate.Height = 24;
             this.dgPax.Size = new System.Drawing.Size(1142, 265);

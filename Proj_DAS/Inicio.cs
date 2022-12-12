@@ -127,5 +127,10 @@ namespace Proj_DAS
         {
             AbrirForm(new PersonalEmp(user));
         }
+
+        private void pbMed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

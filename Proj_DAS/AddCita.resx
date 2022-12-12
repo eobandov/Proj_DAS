@@ -117,4 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Instrucciones
+
+Agregar citas:
+ 1. Añadir codigo del medico, codigo del paciente, fecha AAAA-MM-DD, hora HH:MM,
+numero de consultorio y codigo del empleado.
+ 2. Click en Añadir Cita.
+
+ *Los codigos de medico, paciente, consultorio y empleado son datos previamente establecidos,
+consultarlos en sus respectivos menus.
+
+Actualizar cita:
+ 1. Click en Actualizar Cita.
+ 2. Añadir codigo de la cita, codigo del medico, codigo del paciente, fecha AAAA-MM-DD,
+ hora HH:MM, numero de consultorio y codigo del empleado con los cambios que se desean hacer.
+ 3. Click de nuevo en Actualizar Cita.
+</value>
+  </data>
 </root>
